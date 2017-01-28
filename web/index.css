@@ -3,27 +3,39 @@ body {
 	background-color: #fc906f;
 	font-family: 'Josefin Sans', 'sans-serif';
 }
-#title {
-	margin: auto;
+#maintitle {
+	text-align: center;
+	color: white;
 }
 /*header*/
-.container {
-	margin: auto;
-}
-.main .btn {
+.btn {
   background-color: black;
   color: #fff;
   font-size: 18px;
   padding: 8px 30px;
   text-decoration: none;
+  text-align: center;
   display: inline-block;
 }
 .btn:hover {
 	background-color: #3d3d3d;
 }
-
+.midcontainer {
+	padding-top: 3%;
+}
 /*bullet points*/
 .image {
+	margin: 0 auto;
 	width: 30%;
 	height: 30%;
+}
+.feature {
+	background: url("https://c1.staticflickr.com/9/8327/8093398311_a6c437ae16_b.jpg") no-repeat center center;
+	background-size: cover;
+	height: 300px;
+	width: 100%;
+	text-align: center;
+}
+.title {
+	margin: 0 auto;
 }
