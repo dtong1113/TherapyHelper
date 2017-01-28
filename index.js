@@ -1,30 +1,28 @@
-const express = require('express')
-const app = express()
-const http = require('http').Server(app);
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 3000;
+const http = require('http').Server(app); //dunno what this is
+
+//body parser stuff?
 const bodyParser = require('body-parser');
 
-var hostname = 'localhost';
-
-var srcPath = __dirname;
-var destPath = __dirname;
-
-
-// allows app to get data from POST
+/* DUNNO
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+const http = require('http').Server(app);
+*/
 
-app.use('/', express.static(__dirname + '/web/'));
+//route our app
 
-/*
-app.get('/', (request, response) => {
-  response.send('Hello from Express!')
-})*/
+var router = require('./app/routes');
+app.use('/', router);
 
-app.listen(port, (err) => {
-  if (err) {
-    return console.log('something bad happened', err)
-  }
+app.use(express.static(__dirname + '/web'));
 
-  console.log(`server is listening on ${port}`)
-})
+// start server
+app.listen(port, function(err){
+	if(err){
+		return console.log('something bad happened', err);
+	}
+	console.log('Listenin on port:' + port);
+});
