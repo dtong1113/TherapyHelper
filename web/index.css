@@ -1,4 +1,29 @@
 body {
 	margin: 0;
 	background-color: #fc906f;
+	font-family: 'Josefin Sans', 'sans-serif';
+}
+#title {
+	margin: auto;
+}
+/*header*/
+.container {
+	margin: auto;
+}
+.main .btn {
+  background-color: black;
+  color: #fff;
+  font-size: 18px;
+  padding: 8px 30px;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn:hover {
+	background-color: #3d3d3d;
+}
+
+/*bullet points*/
+.image {
+	width: 30%;
+	height: 30%;
 }
