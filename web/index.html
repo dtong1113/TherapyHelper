@@ -1,4 +1,4 @@
-<!--waterloo > u of t-->
+<!--waterloo <<< u of t-->
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,6 +8,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="index.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="parallax.js"></script>
 	</head>
 	<body>
 		<div id="feature">
@@ -35,9 +37,11 @@
 				<p class="pinfo">Rest easy knowing that your therapist is with you every step of the way.</p>
 			</div></div>
 		</div>
-		<div id="feature2">
-			<!--"You miss 100% of the shots you don't take." - Martin Luther King Jr-->
-		</div>
+		<!--<div class="coverphoto">
+			<img id="feature2" src="img/bg2.jpg">
+		</div> -->
+		<div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="img/bg2.jpg" data-natural-width="1400" data-natural-height="900"></div>
+
 		<div class="info">
 			<h2 class="subheading" style="font-size: 8vh">For Therapists</h2>
 		<div class="luke">
@@ -57,5 +61,22 @@
 				<p class="pinfo">No two treatments are the same - change up the exercises based on each specific patients' needs.</p>
 			</div></div>
 		</div>
+
+		<footer class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<p>&copy; N&psi;2T0 2017</p>
+				</div>
+				<div class="col-sm-2"></div>
+				<div class="col-sm-1">
+					<p><a href="#">About</a></p>
+				</div>
+				<div class="col-sm-1">
+					<p><a href="#">Contact</a></p>
+				</div>
+			</div>
+		</footer>
+
+
 	</body>
 </html>

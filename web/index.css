@@ -1,3 +1,12 @@
+a{
+	color:white;
+}
+
+a:hover{
+	color:white;
+	text-decoration: none;
+}
+
 body {
 	margin: 0;
 	background-color: #1a1a1a;
@@ -47,13 +56,24 @@ body {
 	width: 100%;
 	text-align: center;
 }
+
+footer{
+	font-size: 3vh;
+	color: white;
+	text-decoration: 
+}
+
+
 .title, .pinfo {
 	text-align: center;
 }
 /*Feature2*/
 #feature2 {
-	background: url("img/bg2.jpg") no-repeat center center;
-	background-size: cover;
-	height: 300px;
+	height: 40%;
 	width: 100%;
+}
+
+.parallax-container {
+  height: 300px;
+  width: 100%;
 }
