@@ -3,14 +3,19 @@ const express = require('express');
 const path = require('path');
 
 //create router object
-var router= express.Router();
+//var router= express.Router();
 
 //export our router
-module.exports = router;
+//module.exports = router;
 
-router.get('/', function(req, res){
-	res.sendFile(path.join(__dirname, '../web/index.html'));
-});
-router.get('/login', function(req, res){
-	res.sendFile(path.join(__dirname, '../web/login.html'));
-});
+module.exports = function(app) {
+	app.get('/', function(req, res){
+		res.sendFile(path.join(__dirname, '../web/index.html'));
+	});
+	app.get('/login', function(req, res){
+		res.sendFile(path.join(__dirname, '../web/login.html'));
+	});
+	app.get('/signup', function(req, res){
+		res.sendFile(path.join(__dirname, '../web/signup.html'));
+	});
+};
