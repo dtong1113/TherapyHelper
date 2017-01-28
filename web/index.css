@@ -1,41 +1,51 @@
 body {
 	margin: 0;
-	background-color: #fc906f;
+	background-color: #1a1a1a;
+	color: white;
 	font-family: 'Josefin Sans', 'sans-serif';
 }
 #maintitle {
 	text-align: center;
 	color: white;
+	font-size: 20vh;
 }
 /*header*/
 .btn {
-  background-color: black;
-  color: #fff;
-  font-size: 18px;
-  padding: 8px 30px;
-  text-decoration: none;
-  text-align: center;
-  display: inline-block;
+	background-color: #1a1a1a;
+	color: #fff;
+	font-size: 6vh;
+	padding: 8px 30px;
+	text-decoration: none;
+	text-align: center;
+	border-radius: 10px;
+	display: inline-block;
 }
 .btn:hover {
 	background-color: #3d3d3d;
+	color: #fff;
 }
 .midcontainer {
-	padding-top: 3%;
+	padding-top: 15%;
 }
 /*bullet points*/
+.info {
+	height: 250px;
+}
 .image {
 	margin: 0 auto;
-	width: 30%;
-	height: 30%;
+	width: 20%;
+	height: 20%;
 }
 .feature {
-	background: url("https://c1.staticflickr.com/9/8327/8093398311_a6c437ae16_b.jpg") no-repeat center center;
+	background: url("img/bg.jpg") no-repeat center center;
 	background-size: cover;
-	height: 300px;
+	height: 600px;
 	width: 100%;
 	text-align: center;
 }
-.title {
-	margin: 0 auto;
+.title, .pinfo {
+	text-align: center;
+}
+.luke {
+	padding-top: 3%;
 }
