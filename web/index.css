@@ -28,15 +28,19 @@ body {
 	padding-top: 15%;
 }
 /*bullet points*/
+.subheading, .luke {
+	text-align: center;
+	padding-top: 2%;
+}
 .info {
-	height: 250px;
+	height: 350px;
 }
 .image {
 	margin: 0 auto;
 	width: 20%;
 	height: 20%;
 }
-.feature {
+#feature {
 	background: url("img/bg.jpg") no-repeat center center;
 	background-size: cover;
 	height: 600px;
@@ -46,6 +50,10 @@ body {
 .title, .pinfo {
 	text-align: center;
 }
-.luke {
-	padding-top: 3%;
+/*Feature2*/
+#feature2 {
+	background: url("img/bg2.jpg") no-repeat center center;
+	background-size: cover;
+	height: 300px;
+	width: 100%;
 }
