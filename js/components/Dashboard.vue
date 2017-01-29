@@ -17,7 +17,10 @@
 				</div>
 			</div>
 			<div v-if="currTab == 1">
-				<input type="text" v-for="question in questions" v-model="question.val"></input>
+				<div v-for="question in questions">
+					<input type="text" placeholder="Question" v-model="question.val"></input>
+					<input type="text" placeholder="Type" v-model="question.type"></input>
+				</div>
 				<button v-on:click="addQuestion">Add Question</button>
 				<button v-on:click="submitQuestions">Submit Question</button>
 			</div>
@@ -48,14 +51,15 @@
 				this.questions = [];
 			},
 			addQuestion: function () {
-				this.questions.push({val: ""});
+				this.questions.push({val: "", type: ""});
 			},
 			submitQuestions: function () {
 				var qs = [];
 				var as = [];
+				var ref = this;
 				for (var i = 0; i < this.questions.length; i++) {
 					qs.push(this.questions[i].val);
-					as.push("text");
+					as.push(this.questions[i].type);
 				}
 				$.ajax({
 					url: "/therapist/templates",
@@ -69,6 +73,24 @@
 					processData: false,
 					success: function (result) {
 						console.log(result);
+						var uuid = result.uuid;
+						$.ajax({
+							url: "/therapist/user/templates",
+							contentType: 'application/json',
+							dataType: 'json',
+							type: 'POST',
+							data: JSON.stringify({
+								patientUsername: ref.patients[ref.currPatient].username,
+								templateUuid: uuid
+							}),
+							processData: false,
+							success: function (result) {
+								console.log(result);
+							},
+							error: function (err) {
+								console.log(err);
+							}
+						})
 					},
 					error: function (err) {
 						console.log(err);

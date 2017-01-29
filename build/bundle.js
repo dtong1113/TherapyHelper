@@ -11094,7 +11094,7 @@
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "\r\n\t<div>\r\n\t\t<h1>Welcome {{username}}</h1>\r\n\t\t<div class=\"side-bar\">\r\n\t\t\t<div v-for=\"(patient, index) in patients\" v-on:click=\"setCurrPatient(index)\">{{patient.name}}</div>\r\n\t\t</div>\r\n\t\t<div class=\"top-bar\">\r\n\t\t\t<div v-on:click=\"setCurrTab(0)\">Basic Info</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(1)\">Forms</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(2)\">Tab 3</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(3)\">Tab 4</div>\r\n\t\t</div>\r\n\t\t<div class=\"content\">\r\n\t\t\t<div v-if=\"currTab == 0 && patients.length > 0\">\r\n\t\t\t\t<div v-for=\"attribute in attributes\">\r\n\t\t\t\t\t{{attribute}}: {{patients[currPatient][attribute]}}\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div v-if=\"currTab == 1\">\r\n\t\t\t\t<input type=\"text\" v-for=\"question in questions\" v-model=\"question.val\"></input>\r\n\t\t\t\t<button v-on:click=\"addQuestion\">Add Question</button>\r\n\t\t\t\t<button v-on:click=\"submitQuestions\">Submit Question</button>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n";
+	module.exports = "\r\n\t<div>\r\n\t\t<h1>Welcome {{username}}</h1>\r\n\t\t<div class=\"side-bar\">\r\n\t\t\t<div v-for=\"(patient, index) in patients\" v-on:click=\"setCurrPatient(index)\">{{patient.name}}</div>\r\n\t\t</div>\r\n\t\t<div class=\"top-bar\">\r\n\t\t\t<div v-on:click=\"setCurrTab(0)\">Basic Info</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(1)\">Forms</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(2)\">Tab 3</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(3)\">Tab 4</div>\r\n\t\t</div>\r\n\t\t<div class=\"content\">\r\n\t\t\t<div v-if=\"currTab == 0 && patients.length > 0\">\r\n\t\t\t\t<div v-for=\"attribute in attributes\">\r\n\t\t\t\t\t{{attribute}}: {{patients[currPatient][attribute]}}\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div v-if=\"currTab == 1\">\r\n\t\t\t\t<div v-for=\"question in questions\">\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Question\" v-model=\"question.val\"></input>\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Type\" v-model=\"question.type\"></input>\r\n\t\t\t\t</div>\r\n\t\t\t\t<button v-on:click=\"addQuestion\">Add Question</button>\r\n\t\t\t\t<button v-on:click=\"submitQuestions\">Submit Question</button>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n";
 
 /***/ },
 /* 13 */
@@ -21471,14 +21471,15 @@
 				this.questions = [];
 			},
 			addQuestion: function addQuestion() {
-				this.questions.push({ val: "" });
+				this.questions.push({ val: "", type: "" });
 			},
 			submitQuestions: function submitQuestions() {
 				var qs = [];
 				var as = [];
+				var ref = this;
 				for (var i = 0; i < this.questions.length; i++) {
 					qs.push(this.questions[i].val);
-					as.push("text");
+					as.push(this.questions[i].type);
 				}
 				$.ajax({
 					url: "/therapist/templates",
@@ -21492,6 +21493,24 @@
 					processData: false,
 					success: function success(result) {
 						console.log(result);
+						var uuid = result.uuid;
+						$.ajax({
+							url: "/therapist/user/templates",
+							contentType: 'application/json',
+							dataType: 'json',
+							type: 'POST',
+							data: (0, _stringify2.default)({
+								patientUsername: ref.patients[ref.currPatient].username,
+								templateUuid: uuid
+							}),
+							processData: false,
+							success: function success(result) {
+								console.log(result);
+							},
+							error: function error(err) {
+								console.log(err);
+							}
+						});
 					},
 					error: function error(err) {
 						console.log(err);
@@ -21540,7 +21559,10 @@
 	// 				</div>
 	// 			</div>
 	// 			<div v-if="currTab == 1">
-	// 				<input type="text" v-for="question in questions" v-model="question.val"></input>
+	// 				<div v-for="question in questions">
+	// 					<input type="text" placeholder="Question" v-model="question.val"></input>
+	// 					<input type="text" placeholder="Type" v-model="question.type"></input>
+	// 				</div>
 	// 				<button v-on:click="addQuestion">Add Question</button>
 	// 				<button v-on:click="submitQuestions">Submit Question</button>
 	// 			</div>
