@@ -65,7 +65,6 @@ router.post('/therapist', Verify.verifyPatient, function (req, res) {
 		Therapist.findOne({
 			username: therapistUsername
 		}, function (err, therapist) {
-			console.log(therapist);
 			if (err)
 				return res.status(500).json({err: err});
 			therapist.patients.push(patientUsername);
@@ -81,16 +80,12 @@ router.post('/therapist', Verify.verifyPatient, function (req, res) {
 // gets all Template schema templates to complete for user
 router.get('/templates', Verify.verifyTherapist, function (req, res) {
 	var username = qs.parse(req.query).username;
-	console.log(username);
-	console.log(req.url);
-	console.log(qs.parse(req.query));
 	Patient.findOne({
 		username: username
 	}, function (err, patient) {
 		if (err)
 			return res.status(500).json({err: err});
 		var uuids = [];
-		console.log(patient);
 		for (var i = 0; i < patient.templates.length; i++)
 			uuids.push(patient.templates[i].uuid);
 		Template.find({uuid: {"$in": uuids}}, function (err, templates) {
