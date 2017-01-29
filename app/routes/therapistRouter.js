@@ -11,9 +11,10 @@ router.get('/username', Verify.verifyTherapist, function (req, res) {
 	res.send(req.session.username);
 });
 
+// works
 router.get('/patients', Verify.verifyTherapist, function (req, res) {
 	Patient.find({
-		username: req.session.username
+		therapistUsername: req.session.username
 	}, function (err, patients) {
 		if (err)
 			return res.status(500).json({err: err});
@@ -24,6 +25,7 @@ router.get('/patients', Verify.verifyTherapist, function (req, res) {
 	});
 });	
 
+// works
 router.post('/templates', Verify.verifyTherapist, function (req, res) {
 	var questions = req.body.questions;
 	var answerTypes = req.body.answerTypes;
@@ -40,6 +42,7 @@ router.post('/templates', Verify.verifyTherapist, function (req, res) {
 	});
 });
 
+// works
 router.get('/templates', Verify.verifyTherapist, function (req, res) {
 	Template.find({}, function (err, templates) {
 		if (err)
@@ -48,6 +51,7 @@ router.get('/templates', Verify.verifyTherapist, function (req, res) {
 	});
 });
 
+// works
 router.post('/user/templates', Verify.verifyTherapist, function (req, res) {
 	var patientUsername = req.body.patientUsername;
 	var templateUuid = req.body.templateUuid;
@@ -57,14 +61,14 @@ router.post('/user/templates', Verify.verifyTherapist, function (req, res) {
 	}, function (err, patient) {
 		if (err)
 			return res.status(500).json({err: err});
-		patients.templates.push({
+		patient.templates.push({
 			uuid: templateUuid,
 			isCompleted: false,
-			dateAssigned: Date.now,
-			dateCompleted: Date.now,
+			dateAssigned: new Date(),
+			dateCompleted: new Date(),
 			answers: []
 		});
-		patients.save(function (err, patient) {
+		patient.save(function (err, patient) {
 			if (err)
 				return res.status(500).json({err: err});
 			return res.status(200).json({status: 'add-user-template-success'});
