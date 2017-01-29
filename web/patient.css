@@ -48,6 +48,13 @@ form {
 .text-muted {
 	color: white;
 }
+table {
+	margin: 8% 0% 0% 7%;
+}
+th, .formstuff {
+	text-align: center;
+	color: #404040;
+}
 .pull-right {
 	margin: 2% 5% 2% 0%;
 }
