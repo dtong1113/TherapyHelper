@@ -10,6 +10,14 @@ var User = new Schema({
     },
     password: {
         type: String
+    },
+    type: {
+        type: Number,
+        required: true
+    },
+    uuid: {
+        type: String,
+        required: true
     }
 });
 

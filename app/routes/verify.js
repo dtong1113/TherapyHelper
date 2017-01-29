@@ -10,7 +10,7 @@ exports.getToken = function (user) {
 };
 
 exports.verifyUser = function (req, res, next) {
-    var token = req.cookie.jwt || req.body.token || req.query.token || req.headers['x-access-token'];
+    var token = req.session.token || req.body.token || req.query.token || req.headers['x-access-token'];
     
     if (token) {
         // if there is a token, then verify using jwt
