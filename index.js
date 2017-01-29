@@ -31,6 +31,9 @@ app.use(cookieSession({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.set('views', path.join(__dirname, 'web'));
+app.set('view engine', 'jade');
+
 //for database connection
 mongoose.connect(config.DB_URL);
 
@@ -46,6 +49,8 @@ app.use(express.static(__dirname + '/web'));
 app.use('/users', userRouter);
 app.use('/therapist', therapistRouter);
 app.use('/patient', patientRouter);
+
+
 
 // start server
 app.listen(port, function(err){
