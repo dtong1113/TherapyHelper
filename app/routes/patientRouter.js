@@ -12,6 +12,16 @@ router.get('/username', Verify.verifyPatient, function (req, res) {
 	res.render('./patientDash.jade');
 });
 
+router.get('/data', Verify.verifyPatient, function (req, res) {
+	Patient.findOne({
+		username: req.session.username
+	}, function (err, patient) {
+		if (err)
+			return res.status(500).json({err: err});
+		return res.status(200).json(patient);
+	});
+});
+
 // posts data for patient
 router.post('/data', Verify.verifyPatient, function (req, res) {
 	var name = req.body.name || "";
