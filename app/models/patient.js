@@ -23,7 +23,8 @@ var Patient = new Schema({
         dateAssigned: Date,
         dateCompleted: Date,
         answers: [String]
-    }]
+    }],
+    points : Number
 });
 
 module.exports = mongoose.model('Patient', Patient);

@@ -14,7 +14,7 @@ router.post('/register', function (req, res) {
     User.register(new User({username: username, type: type, uuid: uuid()}), req.body.password, function (err, user) {
         if (err)
             return res.status(500).json({err: err});
-        
+
         passport.authenticate('local')(req, res, function () {
             if (type == 1) {
                 var patient = new Patient({
@@ -47,26 +47,28 @@ router.post('/login', function (req, res, next) {
     passport.authenticate('local', function (err, user, info) {
         if (err)
             return next(err);
-        
+
         if (!user)
             return res.status(401).json({err: info});
         req.logIn(user, function (err) {
             if (err)
                 res.status(500).json({err: 'Could not log in user'});
-            
+
             console.log('User in users: ', user);
-            
+
             var token = Verify.getToken(user);
             req.session.token = token;
             req.session.type = user.type;
             req.session.username = user.username;
             res.status(200).json({
+                type: user.type,
+                username: user.username,
                 status: 'login-success',
                 success: true,
                 token: token
             });
         });
-        
+
     })(req, res, next);
 });
 

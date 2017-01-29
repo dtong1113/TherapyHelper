@@ -5,6 +5,7 @@ var Therapist = require('../models/therapist');
 var Template = require('../models/template');
 var User = require('../models/user');
 var Verify = require('./verify');
+var qs = require('qs');
 const uuid = require('uuid/v1');
 
 router.get('/username', Verify.verifyPatient, function (req, res) {
@@ -64,7 +65,6 @@ router.post('/therapist', Verify.verifyPatient, function (req, res) {
 		Therapist.findOne({
 			username: therapistUsername
 		}, function (err, therapist) {
-			console.log(therapist);
 			if (err)
 				return res.status(500).json({err: err});
 			therapist.patients.push(patientUsername);
@@ -78,9 +78,10 @@ router.post('/therapist', Verify.verifyPatient, function (req, res) {
 });
 
 // gets all Template schema templates to complete for user
-router.get('/templates', Verify.verifyPatient, function (req, res) {
+router.get('/templates', Verify.verifyTherapist, function (req, res) {
+	var username = qs.parse(req.query).username;
 	Patient.findOne({
-		username: req.session.username
+		username: username
 	}, function (err, patient) {
 		if (err)
 			return res.status(500).json({err: err});
@@ -120,5 +121,7 @@ router.post('/templates', Verify.verifyPatient, function (req, res) {
 		});
 	});
 });
+
+
 
 module.exports = router;

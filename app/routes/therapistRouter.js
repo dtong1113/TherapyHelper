@@ -23,7 +23,7 @@ router.get('/patients', Verify.verifyTherapist, function (req, res) {
 			ret.data.push(patients[i]);
         return res.status(200).json(ret);
 	});
-});	
+});
 
 // posts a template
 // requires:
@@ -32,16 +32,17 @@ router.get('/patients', Verify.verifyTherapist, function (req, res) {
 router.post('/templates', Verify.verifyTherapist, function (req, res) {
 	var questions = req.body.questions;
 	var answerTypes = req.body.answerTypes;
+	var templateUuid = uuid();
 	var template = new Template({
 		questions: questions,
 		answerTypes: answerTypes,
-		uuid: uuid()
+		uuid: templateUuid
 	})
 
 	template.save(function (err, template) {
 		if (err)
 			return res.status(500).json({err: err});
-		return res.status(200).json({status: 'template-saved'});
+		return res.status(200).json({status: 'template-saved', uuid: templateUuid});
 	});
 });
 
@@ -61,7 +62,7 @@ router.get('/templates', Verify.verifyTherapist, function (req, res) {
 router.post('/user/templates', Verify.verifyTherapist, function (req, res) {
 	var patientUsername = req.body.patientUsername;
 	var templateUuid = req.body.templateUuid;
-
+	console.log("THE TEMPLATE UUID IS " + templateUuid);
 	Patient.findOne({
 		username: patientUsername
 	}, function (err, patient) {

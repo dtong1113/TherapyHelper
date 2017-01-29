@@ -12,7 +12,8 @@ exports.getToken = function (user) {
 exports.verifyTherapist = function (req, res, next) {
     var token = req.session.token || req.body.token || req.query.token || req.headers['x-access-token'];
     var type = req.session.type;
-    
+
+    console.log(token + " " + type);
     if (token) {
         // if there is a token, then verify using jwt
         jwt.verify(token, config.secretKey, function (err, decoded) {
@@ -21,6 +22,7 @@ exports.verifyTherapist = function (req, res, next) {
                 err.status = 401;
                 return next(err);
             } else if (type != 0) {
+                console.log("TYPE IS " + type);
                 var err = new Error('You do not have the permissions!');
                 err.status = 401;
                 return next(err);
@@ -39,7 +41,7 @@ exports.verifyTherapist = function (req, res, next) {
 exports.verifyPatient = function (req, res, next) {
     var token = req.session.token || req.body.token || req.query.token || req.headers['x-access-token'];
     var type = req.session.type;
-    
+
     if (token) {
         // if there is a token, then verify using jwt
         jwt.verify(token, config.secretKey, function (err, decoded) {
