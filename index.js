@@ -10,8 +10,9 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const config = require('./config.js');
 const LocalStrategy = require('passport-local').Strategy;
-const userRouter = require('./app/routes/users.js');
+const userRouter = require('./app/routes/userRouter.js');
 const therapistRouter = require('./app/routes/therapistRouter.js');
+const patientRouter = require('./app/routes/patientRouter.js');
 const cookieSession = require('cookie-session');
 const uuid = require('uuid/v1');
 
@@ -30,6 +31,9 @@ app.use(cookieSession({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.set('views', path.join(__dirname, 'web'));
+app.set('view engine', 'jade');
+
 //for database connection
 mongoose.connect(config.DB_URL);
 
@@ -44,6 +48,9 @@ passport.deserializeUser(User.deserializeUser());
 app.use(express.static(__dirname + '/web'));
 app.use('/users', userRouter);
 app.use('/therapist', therapistRouter);
+app.use('/patient', patientRouter);
+
+
 
 // start server
 app.listen(port, function(err){
