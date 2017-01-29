@@ -11,16 +11,16 @@ const uuid = require('uuid/v1');
 router.post('/register', function (req, res) {
     var username = req.body.username;
     var type = req.body.type;
-    var uuid = uuid();
-    User.register(new User({username: username, type: type, uuid: uuid}), req.body.password, function (err, user) {
+    User.register(new User({username: username, type: type, uuid: uuid()}), req.body.password, function (err, user) {
         if (err)
             return res.status(500).json({err: err});
         
         passport.authenticate('local')(req, res, function () {
-            if (req.body.type) {
+            if (type == 1) {
                 var patient = new Patient({
                     username: username,
-                    uuid: uuid()
+                    uuid: uuid(),
+                    templates: []
                 });
                 patient.save(function (err, patient) {
                     if (err)
@@ -28,7 +28,7 @@ router.post('/register', function (req, res) {
                     return res.status(200).json({status: 'registration-success'});
                 });
             } else {
-                var therapist = new Patient({
+                var therapist = new Therapist({
                     username: username,
                     uuid: uuid()
                 });

@@ -6,7 +6,7 @@ var Patient = new Schema({
         type: String,
         required: true,
         unique: true
-    }
+    },
     name: String,
     gender: String,
     age: Number,
@@ -16,7 +16,14 @@ var Patient = new Schema({
     uuid: {
         type: String,
         required: true
-    }
+    },
+    templates: [{
+        uuid: String,
+        isCompleted: Boolean,
+        dateAssigned: Date,
+        dateCompleted: Date,
+        answers: [String]
+    }]
 });
 
 module.exports = mongoose.model('Patient', Patient);
