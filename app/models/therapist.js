@@ -2,13 +2,17 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Therapist = new Schema({
-    name: {
+    username: {
         type: String,
-        required: true
+        required: true,
+        unique: true
+    },
+    name: {
+        type: String
     },
     patients: {
         type: [String]
-    }
+    },
     uuid: {
         type: String,
         required: true

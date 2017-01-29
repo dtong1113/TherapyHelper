@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 const config = require('./config.js');
 const LocalStrategy = require('passport-local').Strategy;
 const userRouter = require('./app/routes/users.js');
+const therapistRouter = require('./app/routes/therapistRouter.js');
 const cookieSession = require('cookie-session');
 const uuid = require('uuid/v1');
 
@@ -42,6 +43,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(express.static(__dirname + '/web'));
 app.use('/users', userRouter);
+app.use('/therapist', therapistRouter);
 
 // start server
 app.listen(port, function(err){
