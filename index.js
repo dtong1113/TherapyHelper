@@ -15,6 +15,7 @@ const therapistRouter = require('./app/routes/therapistRouter.js');
 const patientRouter = require('./app/routes/patientRouter.js');
 const cookieSession = require('cookie-session');
 const uuid = require('uuid/v1');
+const path = require('path');
 
 //for logging
 app.use(morgan('dev'));

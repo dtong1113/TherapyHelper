@@ -8,7 +8,8 @@ var Verify = require('./verify');
 const uuid = require('uuid/v1');
 
 router.get('/username', Verify.verifyPatient, function (req, res) {
-	res.send(req.session.username);
+	//res.send(req.session.username);
+	res.render('./patientDash.jade');
 });
 
 // posts data for patient
@@ -37,7 +38,7 @@ router.post('/data', Verify.verifyPatient, function (req, res) {
 			return res.status(200).json({status: "add-data-success"});
 		});
 	});
-});	
+});
 
 // associates therapist with patient
 router.post('/therapist', Verify.verifyPatient, function (req, res) {
@@ -49,7 +50,7 @@ router.post('/therapist', Verify.verifyPatient, function (req, res) {
 		therapistUsername: therapistUsername
 	}, function (err, num, response) {
 		if (err)
-			return res.status(500).json({err: err});	
+			return res.status(500).json({err: err});
 		Therapist.findOne({
 			username: therapistUsername
 		}, function (err, therapist) {
@@ -79,7 +80,7 @@ router.get('/templates', Verify.verifyPatient, function (req, res) {
 		Template.find({uuid: {"$in": uuids}}, function (err, templates) {
 			if (err)
 				return res.status(500).json({err: err});
-			return res.status(200).json({data: templates});	
+			return res.status(200).json({data: templates});
 		});
 	});
 });
