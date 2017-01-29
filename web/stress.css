@@ -16,3 +16,6 @@ h1 {
 .input {
 	font-size: 4vh;
 }
+.inputBox{
+	background-color: red;
+}
