@@ -32,6 +32,7 @@ app.use(cookieSession({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static(__dirname + '/web'));
 app.set('views', path.join(__dirname, 'web'));
 app.set('view engine', 'jade');
 
@@ -45,8 +46,6 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
-app.use(express.static(__dirname + '/web'));
 app.use('/users', userRouter);
 app.use('/therapist', therapistRouter);
 app.use('/patient', patientRouter);
