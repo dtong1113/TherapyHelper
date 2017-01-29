@@ -1,0 +1,76 @@
+a{
+	color:white;
+}
+
+a:hover{
+	color:white;
+	text-decoration: none;
+}
+
+body {
+	margin: 0;
+	background-color: #1a1a1a;
+	color: white;
+	font-family: 'Josefin Sans', 'sans-serif';
+}
+#maintitle {
+	text-align: center;
+	color: white;
+	font-size: 20vh;
+}
+/*header*/
+.btn {
+	background-color: #1a1a1a;
+	color: #fff;
+	font-size: 6vh;
+	padding: 8px 30px;
+	text-decoration: none;
+	text-align: center;
+	border-radius: 10px;
+	display: inline-block;
+}
+.btn:hover {
+	background-color: #3d3d3d;
+	color: #fff;
+}
+/*bullet points*/
+.subheading, .luke {
+	text-align: center;
+	padding-top: 2%;
+}
+.info {
+	height: 350px;
+}
+.image {
+	margin: 0 auto;
+	width: 20%;
+	height: 20%;
+}
+#feature {
+	background: url("img/bg.jpg");
+	background-size: cover;
+	height: 1%;
+	width: 100%;
+	text-align: center;
+}
+
+footer{
+	font-size: 3vh;
+	color: white;
+	text-decoration: 
+}
+
+
+.title, .pinfo {
+	text-align: center;
+}
+/*Feature2*/
+#feature2 {
+	height: 40%;
+	width: 100%;
+}
+
+.parallax-container {
+  height: 300px;
+  width: 100%;
+}

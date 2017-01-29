@@ -1,0 +1,21 @@
+body {
+	background-color: rgb(173, 194, 231);
+	font-family: 'Josefin Sans', 'sans-serif';
+}
+h1 {
+	margin: 0;
+	padding-top: 2%;
+	font-size: 8vh;
+}
+#info {
+	font-size: 5vh;
+}
+#mainform {
+	padding: 3% 30% 0 3%;
+}
+.input {
+	font-size: 4vh;
+}
+.inputBox{
+	background-color: red;
+}
