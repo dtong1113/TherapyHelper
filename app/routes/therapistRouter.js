@@ -11,7 +11,7 @@ router.get('/username', Verify.verifyTherapist, function (req, res) {
 	res.send(req.session.username);
 });
 
-// works
+// gets all patients associated with current therapist
 router.get('/patients', Verify.verifyTherapist, function (req, res) {
 	Patient.find({
 		therapistUsername: req.session.username
@@ -25,7 +25,10 @@ router.get('/patients', Verify.verifyTherapist, function (req, res) {
 	});
 });	
 
-// works
+// posts a template
+// requires:
+//  - list of questions
+//  - list of answerTypes
 router.post('/templates', Verify.verifyTherapist, function (req, res) {
 	var questions = req.body.questions;
 	var answerTypes = req.body.answerTypes;
@@ -42,7 +45,7 @@ router.post('/templates', Verify.verifyTherapist, function (req, res) {
 	});
 });
 
-// works
+// gets all possible templates
 router.get('/templates', Verify.verifyTherapist, function (req, res) {
 	Template.find({}, function (err, templates) {
 		if (err)
@@ -51,7 +54,10 @@ router.get('/templates', Verify.verifyTherapist, function (req, res) {
 	});
 });
 
-// works
+// adds a template to a user
+// requires:
+//  - patientUsername
+//  - templateUuid
 router.post('/user/templates', Verify.verifyTherapist, function (req, res) {
 	var patientUsername = req.body.patientUsername;
 	var templateUuid = req.body.templateUuid;

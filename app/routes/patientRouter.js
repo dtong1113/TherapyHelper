@@ -11,13 +11,14 @@ router.get('/username', Verify.verifyPatient, function (req, res) {
 	res.send(req.session.username);
 });
 
-// works
+// posts data for patient
 router.post('/data', Verify.verifyPatient, function (req, res) {
 	var name = req.body.name || "";
 	var gender = req.body.gender || "";
 	var age = req.body.age || "";
 	var address = req.body.address || "";
 	var illness = req.body.illness || "";
+	var therapistUsername = req.body.therapistUsername || "";
 	Patient.findOne({
 		username: req.session.username
 	}, function (err, patient) {
@@ -28,6 +29,7 @@ router.post('/data', Verify.verifyPatient, function (req, res) {
 		patient.age = age;
 		patient.address = address;
 		patient.illness = illness;
+		patient.therapistUsername = therapistUsername;
 
 		patient.save(function (err, patient) {
 			if (err)
@@ -37,7 +39,7 @@ router.post('/data', Verify.verifyPatient, function (req, res) {
 	});
 });	
 
-// works
+// associates therapist with patient
 router.post('/therapist', Verify.verifyPatient, function (req, res) {
 	var therapistUsername = req.body.username;
 	var patientUsername = req.session.username;
@@ -64,6 +66,7 @@ router.post('/therapist', Verify.verifyPatient, function (req, res) {
 	});
 });
 
+// gets all Template schema templates to complete for user
 router.get('/templates', Verify.verifyPatient, function (req, res) {
 	Patient.findOne({
 		username: req.session.username
@@ -81,6 +84,10 @@ router.get('/templates', Verify.verifyPatient, function (req, res) {
 	});
 });
 
+// posts answers to template
+// INPUTS
+//  - uuid of Template schema template
+//  - list of answers
 router.post('/templates', Verify.verifyPatient, function (req, res) {
 	var templateUuid = req.body.uuid;
 	var answers = req.body.answers;
