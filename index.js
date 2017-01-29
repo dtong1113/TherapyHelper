@@ -13,6 +13,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const userRouter = require('./app/routes/userRouter.js');
 const therapistRouter = require('./app/routes/therapistRouter.js');
 const patientRouter = require('./app/routes/patientRouter.js');
+const staticRouter = require('./app/routes/staticRouter.js');
 const cookieSession = require('cookie-session');
 const uuid = require('uuid/v1');
 const path = require('path');

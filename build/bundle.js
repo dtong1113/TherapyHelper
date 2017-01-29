@@ -54,27 +54,27 @@
 
 	var _vueRouter2 = _interopRequireDefault(_vueRouter);
 
-	var _jquery = __webpack_require__(16);
+	var _jquery = __webpack_require__(3);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _Home = __webpack_require__(6);
+	var _Home = __webpack_require__(4);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _About = __webpack_require__(8);
+	var _About = __webpack_require__(6);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Dashboard = __webpack_require__(11);
+	var _Dashboard = __webpack_require__(8);
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _Login = __webpack_require__(13);
+	var _Login = __webpack_require__(15);
 
 	var _Login2 = _interopRequireDefault(_Login);
 
-	var _auth = __webpack_require__(10);
+	var _auth = __webpack_require__(13);
 
 	var _auth2 = _interopRequireDefault(_auth);
 
@@ -10975,218 +10975,7 @@
 
 
 /***/ },
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__vue_template__ = __webpack_require__(7)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
-	  if (!hotAPI.compatible) return
-	  var id = "C:\\Users\\Jeffrey\\workspace\\GitHub\\Vue\\js\\components\\Home.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	module.exports = "\r\n\t<h1>This is the home</h1>\r\n";
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__vue_template__ = __webpack_require__(9)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
-	  if (!hotAPI.compatible) return
-	  var id = "C:\\Users\\Jeffrey\\workspace\\GitHub\\Vue\\js\\components\\About.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ },
-/* 9 */
-/***/ function(module, exports) {
-
-	module.exports = "\r\n\t<h1>This is the about page</h1>\r\n";
-
-/***/ },
-/* 10 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	var localToken = null;
-	var type, username;
-	exports.default = {
-		login: function login(username, password) {},
-		getToken: function getToken() {
-			return localToken;
-		},
-		setData: function setData(newType, newUsername) {
-			type = newType;
-			username = newUsername;
-		},
-		getType: function getType() {
-			return type;
-		},
-		getUsername: function getUsername() {
-			return username;
-		},
-		setToken: function setToken(token) {
-			localToken = token;
-		},
-		logout: function logout() {
-			localToken = null;
-		},
-		loggedIn: function loggedIn() {
-			return localToken;
-		}
-	};
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(20)
-	__vue_template__ = __webpack_require__(12)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
-	  if (!hotAPI.compatible) return
-	  var id = "C:\\Users\\Jeffrey\\workspace\\GitHub\\Vue\\js\\components\\Dashboard.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ },
-/* 12 */
-/***/ function(module, exports) {
-
-	module.exports = "\r\n\t<div>\r\n\t\t<h1>Welcome {{username}}</h1>\r\n\t\t<div class=\"side-bar\">\r\n\t\t\t<div v-for=\"(patient, index) in patients\" v-on:click=\"setCurrPatient(index)\">{{patient.name}}</div>\r\n\t\t</div>\r\n\t\t<div class=\"top-bar\">\r\n\t\t\t<div v-on:click=\"setCurrTab(0)\">Basic Info</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(1)\">Forms</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(2)\">Tab 3</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(3)\">Tab 4</div>\r\n\t\t</div>\r\n\t\t<div class=\"content\">\r\n\t\t\t<div v-if=\"currTab == 0 && patients.length > 0\">\r\n\t\t\t\t<div v-for=\"attribute in attributes\">\r\n\t\t\t\t\t{{attribute}}: {{patients[currPatient][attribute]}}\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div v-if=\"currTab == 1\">\r\n\t\t\t\t<input type=\"text\" v-for=\"question in questions\" v-model=\"question.val\"></input>\r\n\t\t\t\t<button v-on:click=\"addQuestion\">Add Question</button>\r\n\t\t\t\t<button v-on:click=\"submitQuestions\">Submit Question</button>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n";
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(15)
-	__vue_template__ = __webpack_require__(14)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
-	  if (!hotAPI.compatible) return
-	  var id = "C:\\Users\\Jeffrey\\workspace\\GitHub\\Vue\\js\\components\\Login.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ },
-/* 14 */
-/***/ function(module, exports) {
-
-	module.exports = "\r\n\t<div id=\"login-form\">\r\n\t\t<label>Username <input type=\"text\" v-model=username></label>\r\n\t\t<label>Password <input type=\"password\" v-model=password></label>\r\n\t\t<button @click=\"onSubmit\">Submit</button>\r\n\t\t<div v-if=\"error\" v-html=\"error\"></div>\r\n\t</div>\r\n";
-
-/***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _stringify = __webpack_require__(17);
-
-	var _stringify2 = _interopRequireDefault(_stringify);
-
-	var _auth = __webpack_require__(10);
-
-	var _auth2 = _interopRequireDefault(_auth);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	module.exports = {
-		data: function data() {
-			return {
-				username: '',
-				password: '',
-				error: null
-			};
-		},
-		methods: {
-			onSubmit: function onSubmit() {
-				var ref = this;
-				$.ajax({
-					url: "/users/login",
-					contentType: 'application/json',
-					dataType: 'json',
-					type: 'POST',
-					processData: false,
-					data: (0, _stringify2.default)({
-						username: this.username,
-						password: this.password
-					}),
-					success: function success(result) {
-						console.log(result);
-						_auth2.default.setToken(result.token);
-						_auth2.default.setData(result.type, result.username);
-						ref.$router.replace(ref.$route.query.redirect || '/');
-					},
-					error: function error() {
-						ref.error = "Invalid authentication request";
-					}
-				});
-			}
-		}
-	};
-	// </script>
-	// <template>
-	// 	<div id="login-form">
-	// 		<label>Username <input type="text" v-model=username></label>
-	// 		<label>Password <input type="password" v-model=password></label>
-	// 		<button @click="onSubmit">Submit</button>
-	// 		<div v-if="error" v-html="error"></div>
-	// 	</div>
-	// </template>
-	// <script>
-
-/***/ },
-/* 16 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -21412,38 +21201,92 @@
 
 
 /***/ },
-/* 17 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(18), __esModule: true };
+	var __vue_script__, __vue_template__
+	__vue_template__ = __webpack_require__(5)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\danie\\Documents\\TherapyHelper\\js\\components\\Home.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
 
 /***/ },
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var core = __webpack_require__(19);
-	module.exports = function stringify(it){ // eslint-disable-line no-unused-vars
-	  return (core.JSON && core.JSON.stringify || JSON.stringify).apply(JSON, arguments);
-	};
-
-/***/ },
-/* 19 */
+/* 5 */
 /***/ function(module, exports) {
 
-	var core = module.exports = {version: '1.2.6'};
-	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+	module.exports = "\r\n\t<h1>This is the home</h1>\r\n";
 
 /***/ },
-/* 20 */
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__vue_template__ = __webpack_require__(7)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\danie\\Documents\\TherapyHelper\\js\\components\\About.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n\t<h1>This is the about page</h1>\r\n";
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__vue_script__ = __webpack_require__(9)
+	__vue_template__ = __webpack_require__(14)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\danie\\Documents\\TherapyHelper\\js\\components\\Dashboard.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _stringify = __webpack_require__(17);
+	var _stringify = __webpack_require__(10);
 
 	var _stringify2 = _interopRequireDefault(_stringify);
 
-	var _auth = __webpack_require__(10);
+	var _auth = __webpack_require__(13);
 
 	var _auth2 = _interopRequireDefault(_auth);
 
@@ -21548,6 +21391,160 @@
 	// 	</div>
 	// </template>
 	// <script>
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(11), __esModule: true };
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var core = __webpack_require__(12);
+	module.exports = function stringify(it){ // eslint-disable-line no-unused-vars
+	  return (core.JSON && core.JSON.stringify || JSON.stringify).apply(JSON, arguments);
+	};
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	var core = module.exports = {version: '1.2.6'};
+	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	var localToken = null;
+	var type, username;
+	exports.default = {
+		login: function login(username, password) {},
+		getToken: function getToken() {
+			return localToken;
+		},
+		setData: function setData(newType, newUsername) {
+			type = newType;
+			username = newUsername;
+		},
+		getType: function getType() {
+			return type;
+		},
+		getUsername: function getUsername() {
+			return username;
+		},
+		setToken: function setToken(token) {
+			localToken = token;
+		},
+		logout: function logout() {
+			localToken = null;
+		},
+		loggedIn: function loggedIn() {
+			return localToken;
+		}
+	};
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n\t<div>\r\n\t\t<h1>Welcome {{username}}</h1>\r\n\t\t<div class=\"side-bar\">\r\n\t\t\t<div v-for=\"(patient, index) in patients\" v-on:click=\"setCurrPatient(index)\">{{patient.name}}</div>\r\n\t\t</div>\r\n\t\t<div class=\"top-bar\">\r\n\t\t\t<div v-on:click=\"setCurrTab(0)\">Basic Info</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(1)\">Forms</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(2)\">Tab 3</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(3)\">Tab 4</div>\r\n\t\t</div>\r\n\t\t<div class=\"content\">\r\n\t\t\t<div v-if=\"currTab == 0 && patients.length > 0\">\r\n\t\t\t\t<div v-for=\"attribute in attributes\">\r\n\t\t\t\t\t{{attribute}}: {{patients[currPatient][attribute]}}\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div v-if=\"currTab == 1\">\r\n\t\t\t\t<input type=\"text\" v-for=\"question in questions\" v-model=\"question.val\"></input>\r\n\t\t\t\t<button v-on:click=\"addQuestion\">Add Question</button>\r\n\t\t\t\t<button v-on:click=\"submitQuestions\">Submit Question</button>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n";
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__vue_script__ = __webpack_require__(16)
+	__vue_template__ = __webpack_require__(17)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\danie\\Documents\\TherapyHelper\\js\\components\\Login.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _stringify = __webpack_require__(10);
+
+	var _stringify2 = _interopRequireDefault(_stringify);
+
+	var _auth = __webpack_require__(13);
+
+	var _auth2 = _interopRequireDefault(_auth);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	module.exports = {
+		data: function data() {
+			return {
+				username: '',
+				password: '',
+				error: null
+			};
+		},
+		methods: {
+			onSubmit: function onSubmit() {
+				var ref = this;
+				$.ajax({
+					url: "/users/login",
+					contentType: 'application/json',
+					dataType: 'json',
+					type: 'POST',
+					processData: false,
+					data: (0, _stringify2.default)({
+						username: this.username,
+						password: this.password
+					}),
+					success: function success(result) {
+						console.log(result);
+						_auth2.default.setToken(result.token);
+						_auth2.default.setData(result.type, result.username);
+						ref.$router.replace(ref.$route.query.redirect || '/');
+					},
+					error: function error() {
+						ref.error = "Invalid authentication request";
+					}
+				});
+			}
+		}
+	};
+	// </script>
+	// <template>
+	// 	<div id="login-form">
+	// 		<label>Username <input type="text" v-model=username></label>
+	// 		<label>Password <input type="password" v-model=password></label>
+	// 		<button @click="onSubmit">Submit</button>
+	// 		<div v-if="error" v-html="error"></div>
+	// 	</div>
+	// </template>
+	// <script>
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n\t<div id=\"login-form\">\r\n\t\t<label>Username <input type=\"text\" v-model=username></label>\r\n\t\t<label>Password <input type=\"password\" v-model=password></label>\r\n\t\t<button @click=\"onSubmit\">Submit</button>\r\n\t\t<div v-if=\"error\" v-html=\"error\"></div>\r\n\t</div>\r\n";
 
 /***/ }
 /******/ ]);
