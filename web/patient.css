@@ -44,20 +44,22 @@ h1{
 form {
 	padding: 2% 5% 0 5%;
 	font-size: 3vh;
+	color: #404040;
 }
 .text-muted {
-	color: white;
+	color: #404040;
 }
 table {
 	margin: 8% 0% 0% 7%;
 }
 th, .formstuff {
 	text-align: center;
-	color: #404040;
+}
+.brow {
+	padding-top: 2%;
+	text-align: right;
 }
 .pull-right {
 	margin: 2% 5% 2% 0%;
 }
-.slider{
-	padding-top:8px;
-}
+
