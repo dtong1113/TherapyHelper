@@ -30,25 +30,55 @@
 			</div>
 			<br>
 			<div class="container ctable">
-				<div class="col-md-4">
-					<button type="button" class="btn-lg btn-primary multi col-md-12">A</button>
-					<br>
-					<br>
-					<p class="drop">TEST</p>
+				<div class="row">
+					<div class="col-md-2">
+						<br>
+						<br>
+					</div>
+					<div class="col-md-10">
+						<button type="button" class="btn-lg btn-primary multi col-md-3">B</button>
+						<button type="button" class="btn-lg btn-primary multi col-md-3">B</button>
+						<button type="button" class="btn-lg btn-primary multi col-md-3">B</button>
+						<button type="button" class="btn-lg btn-primary multi col-md-3">B</button>
+						<br>
+						<br>
+						<br>
+						<br>
+					</div>
 				</div>
-				<div class="col-md-4">
-					<button type="button" class="btn-lg btn-primary multi col-md-12">B</button>
-					<br>
-					<br>
-					<p class="drop">TEST</p>
-				</div>
-				<div class="col-md-4">
-					<button type="button" class="btn-lg btn-primary multi col-md-12">C</button>
-					<br>
-					<br>
-					<p class="drop">TEST</p>
+				<div class="col-md-12">
+					<div class="drop">
+						<form>
+						<div class="form-group row">
+							<label for="date-input" class="input">Date</label>
+							<input type="date" class="form-control" id="date-input">
+						</div>
+						<br>
+						<div class="form-group row">
+							<label for="event-desc" class="input">Situation</label>
+							<input rows="3" class="form-control" id="event-desc" aria-describedby="event">
+							<small id="event" class="form-text text-muted">What was the situation where you had those feelings?</small>
+						</div>
+						<br>
+						<div class="form-group row">
+							<label for="emotions" class="input">Emotions</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+							<input class="form-check-input" type="checkbox" value="">&nbsp;Afraid&nbsp;&nbsp;</label>
+							<input class="form-check-input" type="checkbox" value="">&nbsp;Angry&nbsp;&nbsp;</label>
+							<input class="form-check-input" type="checkbox" value="">&nbsp;Depressed&nbsp;&nbsp;</label>
+							<input class="form-check-input" type="checkbox" value="">&nbsp;Embarassed&nbsp;&nbsp;</label>
+							<input class="form-check-input" type="checkbox" value="">&nbsp;Guilty&nbsp;&nbsp;</label>
+							<input class="form-check-input" type="checkbox" value="">&nbsp;Humiliated&nbsp;&nbsp;</label>
+							<input class="form-check-input" type="checkbox" value="">&nbsp;Jealous&nbsp;&nbsp;</label>
+							<input class="form-check-input" type="checkbox" value="">&nbsp;Lonely&nbsp;&nbsp;</label>
+						</div>
+					</form>
+					</div>
 				</div>
 			</div>
+			<button type="submit" class="btn btn-primary pull-right btn-lg">Submit</button>
 		</div>
 		
 	</body>
