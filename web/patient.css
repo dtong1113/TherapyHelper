@@ -1,0 +1,53 @@
+body {
+	background-color: rgb(208, 196, 252);
+	font-family: 'Josefin Sans', 'sans-serif';
+}
+.header{
+	background-color: rgb(84, 66, 150);
+	text-align:center;
+	height:10%;
+	color: #FFFFFF;
+}
+h1{
+	padding-top: 2%;
+}
+#points{
+	font-size: 5vh;
+	background-color: #EEEEEE;
+	padding: 20px 20px 20px 20px;
+	border-radius: 7%;
+}
+#achievements{
+	font-size: 5vh;
+	background-color: #EEEEEE;
+	padding: 20px 20px 20px 20px;
+	border-radius: 7%;
+}
+#main {
+	padding: 3% 5% 3% 5%;
+}
+.multi{
+	color: white;
+}
+.drop{
+	height: 500px;
+	background-color:rgb(140, 120, 211);
+	border-radius: 4%;
+	color: #EEEEEE;
+}
+.ctable{
+	padding-top: 2%;
+	padding-bottom: 2%;
+	border-radius: 3%;
+	background-color:rgb(70, 56, 119);
+}
+form {
+	padding: 2% 5% 0 5%;
+	font-size: 3vh;
+}
+.text-muted {
+	color: white;
+}
+.pull-right {
+	margin: 2% 5% 2% 0%;
+}
