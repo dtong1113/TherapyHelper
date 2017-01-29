@@ -11,18 +11,19 @@ const mongoose = require('mongoose');
 const config = require('./config.js');
 const LocalStrategy = require('passport-local').Strategy;
 const userRouter = require('./app/routes/users.js');
+const cookieSession = require('cookie-session');
+const uuid = require('uuid/v1');
 
 //for logging
 app.use(morgan('dev'));
 
 //for reading cookies (for authentication)
 app.use(cookieParser());
-app.use(express.cookieSession({
-	cookie: {
-		path: '/',
-		maxAge: 3600000
-	}
-});
+app.use(cookieSession({
+	name: 'session',
+	maxAge: 3600000,
+	keys: ['0', '1', '2']
+}));
 
 //for user input
 app.use(bodyParser.json());

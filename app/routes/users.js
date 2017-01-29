@@ -6,7 +6,8 @@ var Verify = require('./verify');
 
 // post request for registering a user
 router.post('/register', function (req, res) {
-    User.register(new User({username: req.body.username}), req.body.password, function (err, user) {
+    var userUuid = uuid();
+    User.register(new User({username: req.body.username, type: req.body.type, uuid: userUuid}), req.body.password, function (err, user) {
         if (err)
             return res.status(500).json({err: err});
         
@@ -32,7 +33,7 @@ router.post('/login', function (req, res, next) {
             console.log('User in users: ', user);
             
             var token = Verify.getToken(user);
-            res.cookie('jwt', token);
+            req.session.token = token;
             res.status(200).json({
                 status: 'login-success',
                 success: true,
@@ -45,16 +46,9 @@ router.post('/login', function (req, res, next) {
 
 // get request for logging out a user
 router.get('/logout', function (req, res) {
+    req.session.token = null;
     req.logout();
     res.status(200).json({status: 'Successfully logged out'});
-});
-
-router.get('/', Verify.verifyAdmin, function (req, res, next) {
-    User.find({}, function (err, user) {
-        if (err)
-            throw err;
-        res.json(user);
-    });
 });
 
 module.exports = router;
