@@ -62,19 +62,19 @@
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _About = __webpack_require__(6);
+	var _About = __webpack_require__(11);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Dashboard = __webpack_require__(8);
+	var _Dashboard = __webpack_require__(13);
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _Login = __webpack_require__(15);
+	var _Login = __webpack_require__(22);
 
 	var _Login2 = _interopRequireDefault(_Login);
 
-	var _auth = __webpack_require__(13);
+	var _auth = __webpack_require__(20);
 
 	var _auth2 = _interopRequireDefault(_auth);
 
@@ -21205,9 +21205,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(22)
-	__vue_script__ = __webpack_require__(33)
-	__vue_template__ = __webpack_require__(24)
+	__webpack_require__(5)
+	__vue_script__ = __webpack_require__(9)
+	__vue_template__ = __webpack_require__(10)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -21224,12 +21224,529 @@
 	})()}
 
 /***/ },
-/* 5 */,
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(6);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(8)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-aa07b354&file=Home.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Home.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-aa07b354&file=Home.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Home.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
+	exports = module.exports = __webpack_require__(7)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\na[_v-aa07b354]{\n\tcolor:white;\n}\n\na[_v-aa07b354]:hover{\n\tcolor:white;\n\ttext-decoration: none;\n}\n\n#maintitle[_v-aa07b354] {\n\ttext-align: center;\n\tcolor: white;\n\tfont-size: 20vh;\n}\n#slogan[_v-aa07b354] {\n\tmargin-top: -3%;\n\tfont-size: 4vh;\n\tfont-weight: 600;\n\tcolor: #000000;\n}\n/*header*/\n.btn[_v-aa07b354] {\n\tbackground-color: #1a1a1a;\n\tcolor: #fff;\n\tfont-size: 6vh;\n\tpadding: 8px 30px;\n\ttext-decoration: none;\n\ttext-align: center;\n\tborder-radius: 10px;\n\tdisplay: inline-block;\n}\n.btn[_v-aa07b354]:hover {\n\tbackground-color: #3d3d3d;\n\tcolor: #fff;\n}\n.midcontainer[_v-aa07b354] {\n\tpadding-top: 15%;\n}\n/*bullet points*/\n.subheading[_v-aa07b354], .luke[_v-aa07b354] {\n\ttext-align: center;\n\tpadding-top: 2%;\n}\n.info[_v-aa07b354] {\n\theight: 350px;\n}\n.image[_v-aa07b354] {\n\tmargin: 0 auto;\n\twidth: 20%;\n\theight: 20%;\n}\n#feature[_v-aa07b354] {\n\tbackground: url(\"/web/img/bg.jpg\") no-repeat center center;\n\tbackground-size: cover;\n\theight: 600px;\n\twidth: 100%;\n\ttext-align: center;\n\tz-index: 100;\n}\n\nfooter[_v-aa07b354]{\n\tfont-size: 3vh;\n\tcolor: white;\n\ttext-decoration: \n}\n\n\n.title[_v-aa07b354], .pinfo[_v-aa07b354] {\n\ttext-align: center;\n}\n/*Feature2*/\n#feature2[_v-aa07b354] {\n\theight: 40%;\n\twidth: 100%;\n}\n\n.parallax-container[_v-aa07b354] {\n  height: 300px;\n  width: 100%;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	// <template>
+	// 	<div id="content">
+	// 	<div id="feature">
+	// 		<div class="midcontainer">
+	// 			<h1 id="maintitle">Wellness Peak</h1>
+	// 			<p id="slogan"><em>A better you awaits at the peak</em></p>
+	// 			<router-link to="/login" class="btn">Let's Get Started!</router-link>
+	// 		</div>
+	// 	</div>
+	// 	<div class="info">
+	// 		<h2 class="subheading" style="font-size: 8vh">For Patients</h2>
+	// 	<div class="luke">
+	// 		<div class="col-xs-12 col-sm-4">
+	// 			<img src="/web/img/lock.png" class="image img-responsive">
+	// 			<h2 class="title">Private</h2>
+	// 			<p class="pinfo">Complete your homework discreetly and know that only you and your therapist can see what you write.</p>
+	// 		</div>
+	// 		<div class="col-xs-12 col-sm-4">
+	// 			<img src="/web/img/game.png" class="image img-responsive">
+	// 			<h2 class="title">Engaging</h2>
+	// 			<p class="pinfo">Your wellness, the game - have fun and track your progress as you work through exercises.</p>
+	// 		</div>
+	// 		<div class="col-xs-12 col-sm-4">
+	// 		<img src="/web/img/stream.png" class="image img-responsive">
+	// 			<h2 class="title">Streamlined</h2>
+	// 			<p class="pinfo">Rest easy knowing that your therapist is with you every step of the way.</p>
+	// 		</div></div>
+	// 	</div>
+	// 	<div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="web/img/bg2.jpg" data-natural-width="1400" data-natural-height="900"></div>
+	//
+	// 	<div class="info">
+	// 		<h2 class="subheading" style="font-size: 8vh">For Therapists</h2>
+	// 	<div class="luke">
+	// 		<div class="col-xs-12 col-sm-4">
+	// 			<img src="/web/img/talk.png" class="image img-responsive">
+	// 			<h2 class="title">Communicative</h2>
+	// 			<p class="pinfo">Talk to your patients anytime, anywhere, right from your therapist dashboard.</p>
+	// 		</div>
+	// 		<div class="col-xs-12 col-sm-4">
+	// 			<img src="/web/img/chart.png" class="image img-responsive">
+	// 			<h2 class="title">Analytical</h2>
+	// 			<p class="pinfo">All the homework answers, in one place - look for and spot red flags and target the issues before they occur.</p>
+	// 		</div>
+	// 		<div class="col-xs-12 col-sm-4">
+	// 		<img src="/web/img/gears.png" class="image img-responsive">
+	// 			<h2 class="title">Customizable</h2>
+	// 			<p class="pinfo">No two treatments are the same - change up the exercises based on each specific patients' needs.</p>
+	// 		</div></div>
+	// 	</div>
+	//
+	//
+	// 	<footer class="container">
+	// 		<div class="row">
+	// 			<div class="col-sm-8">
+	// 				<p>&copy; 2017</p>
+	// 			</div>
+	// 			<div class="col-sm-2"></div>
+	// 			<div class="col-sm-1">
+	// 				<p><a href="about.html">About</a></p>
+	// 			</div>
+	// 			<div class="col-sm-1">
+	// 				<p><a href="contact.html">Contact</a></p>
+	// 			</div>
+	// 		</div>
+	// 	</footer>
+	// </div>
+	// </template>
+	// <script>
+	module.exports = {
+		mounted: function mounted() {
+			$('body').css('height', 'auto');
+			$('body').css('background-color', 'none');
+		}
+	};
+	// </script>
+	// <style scoped>
+	// a{
+	// 	color:white;
+	// }
+	//
+	// a:hover{
+	// 	color:white;
+	// 	text-decoration: none;
+	// }
+	//
+	// #maintitle {
+	// 	text-align: center;
+	// 	color: white;
+	// 	font-size: 20vh;
+	// }
+	// #slogan {
+	// 	margin-top: -3%;
+	// 	font-size: 4vh;
+	// 	font-weight: 600;
+	// 	color: #000000;
+	// }
+	// /*header*/
+	// .btn {
+	// 	background-color: #1a1a1a;
+	// 	color: #fff;
+	// 	font-size: 6vh;
+	// 	padding: 8px 30px;
+	// 	text-decoration: none;
+	// 	text-align: center;
+	// 	border-radius: 10px;
+	// 	display: inline-block;
+	// }
+	// .btn:hover {
+	// 	background-color: #3d3d3d;
+	// 	color: #fff;
+	// }
+	// .midcontainer {
+	// 	padding-top: 15%;
+	// }
+	// /*bullet points*/
+	// .subheading, .luke {
+	// 	text-align: center;
+	// 	padding-top: 2%;
+	// }
+	// .info {
+	// 	height: 350px;
+	// }
+	// .image {
+	// 	margin: 0 auto;
+	// 	width: 20%;
+	// 	height: 20%;
+	// }
+	// #feature {
+	// 	background: url("/web/img/bg.jpg") no-repeat center center;
+	// 	background-size: cover;
+	// 	height: 600px;
+	// 	width: 100%;
+	// 	text-align: center;
+	// 	z-index: 100;
+	// }
+	//
+	// footer{
+	// 	font-size: 3vh;
+	// 	color: white;
+	// 	text-decoration: 
+	// }
+	//
+	//
+	// .title, .pinfo {
+	// 	text-align: center;
+	// }
+	// /*Feature2*/
+	// #feature2 {
+	// 	height: 40%;
+	// 	width: 100%;
+	// }
+	//
+	// .parallax-container {
+	//   height: 300px;
+	//   width: 100%;
+	// }
+	// </style>
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	module.exports = "\n\t<div id=\"content\" _v-aa07b354=\"\">\n\t<div id=\"feature\" _v-aa07b354=\"\">\n\t\t<div class=\"midcontainer\" _v-aa07b354=\"\">\n\t\t\t<h1 id=\"maintitle\" _v-aa07b354=\"\">Wellness Peak</h1>\n\t\t\t<p id=\"slogan\" _v-aa07b354=\"\"><em _v-aa07b354=\"\">A better you awaits at the peak</em></p>\n\t\t\t<router-link to=\"/login\" class=\"btn\" _v-aa07b354=\"\">Let's Get Started!</router-link>\n\t\t</div>\n\t</div>\n\t<div class=\"info\" _v-aa07b354=\"\">\n\t\t<h2 class=\"subheading\" style=\"font-size: 8vh\" _v-aa07b354=\"\">For Patients</h2>\n\t<div class=\"luke\" _v-aa07b354=\"\">\n\t\t<div class=\"col-xs-12 col-sm-4\" _v-aa07b354=\"\">\n\t\t\t<img src=\"/web/img/lock.png\" class=\"image img-responsive\" _v-aa07b354=\"\">\n\t\t\t<h2 class=\"title\" _v-aa07b354=\"\">Private</h2>\n\t\t\t<p class=\"pinfo\" _v-aa07b354=\"\">Complete your homework discreetly and know that only you and your therapist can see what you write.</p>\n\t\t</div>\n\t\t<div class=\"col-xs-12 col-sm-4\" _v-aa07b354=\"\">\n\t\t\t<img src=\"/web/img/game.png\" class=\"image img-responsive\" _v-aa07b354=\"\">\n\t\t\t<h2 class=\"title\" _v-aa07b354=\"\">Engaging</h2>\n\t\t\t<p class=\"pinfo\" _v-aa07b354=\"\">Your wellness, the game - have fun and track your progress as you work through exercises.</p>\n\t\t</div>\n\t\t<div class=\"col-xs-12 col-sm-4\" _v-aa07b354=\"\">\n\t\t<img src=\"/web/img/stream.png\" class=\"image img-responsive\" _v-aa07b354=\"\">\n\t\t\t<h2 class=\"title\" _v-aa07b354=\"\">Streamlined</h2>\n\t\t\t<p class=\"pinfo\" _v-aa07b354=\"\">Rest easy knowing that your therapist is with you every step of the way.</p>\n\t\t</div></div>\n\t</div>\n\t<div class=\"parallax-container\" data-parallax=\"scroll\" data-position=\"top\" data-bleed=\"10\" data-image-src=\"web/img/bg2.jpg\" data-natural-width=\"1400\" data-natural-height=\"900\" _v-aa07b354=\"\"></div>\n\n\t<div class=\"info\" _v-aa07b354=\"\">\n\t\t<h2 class=\"subheading\" style=\"font-size: 8vh\" _v-aa07b354=\"\">For Therapists</h2>\n\t<div class=\"luke\" _v-aa07b354=\"\">\n\t\t<div class=\"col-xs-12 col-sm-4\" _v-aa07b354=\"\">\n\t\t\t<img src=\"/web/img/talk.png\" class=\"image img-responsive\" _v-aa07b354=\"\">\n\t\t\t<h2 class=\"title\" _v-aa07b354=\"\">Communicative</h2>\n\t\t\t<p class=\"pinfo\" _v-aa07b354=\"\">Talk to your patients anytime, anywhere, right from your therapist dashboard.</p>\n\t\t</div>\n\t\t<div class=\"col-xs-12 col-sm-4\" _v-aa07b354=\"\">\n\t\t\t<img src=\"/web/img/chart.png\" class=\"image img-responsive\" _v-aa07b354=\"\">\n\t\t\t<h2 class=\"title\" _v-aa07b354=\"\">Analytical</h2>\n\t\t\t<p class=\"pinfo\" _v-aa07b354=\"\">All the homework answers, in one place - look for and spot red flags and target the issues before they occur.</p>\n\t\t</div>\n\t\t<div class=\"col-xs-12 col-sm-4\" _v-aa07b354=\"\">\n\t\t<img src=\"/web/img/gears.png\" class=\"image img-responsive\" _v-aa07b354=\"\">\n\t\t\t<h2 class=\"title\" _v-aa07b354=\"\">Customizable</h2>\n\t\t\t<p class=\"pinfo\" _v-aa07b354=\"\">No two treatments are the same - change up the exercises based on each specific patients' needs.</p>\n\t\t</div></div>\n\t</div>\n\n\t\n\t<footer class=\"container\" _v-aa07b354=\"\">\n\t\t<div class=\"row\" _v-aa07b354=\"\">\n\t\t\t<div class=\"col-sm-8\" _v-aa07b354=\"\">\n\t\t\t\t<p _v-aa07b354=\"\">© 2017</p>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-2\" _v-aa07b354=\"\"></div>\n\t\t\t<div class=\"col-sm-1\" _v-aa07b354=\"\">\n\t\t\t\t<p _v-aa07b354=\"\"><a href=\"about.html\" _v-aa07b354=\"\">About</a></p>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-1\" _v-aa07b354=\"\">\n\t\t\t\t<p _v-aa07b354=\"\"><a href=\"contact.html\" _v-aa07b354=\"\">Contact</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</footer>\n</div>\n";
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var __vue_script__, __vue_template__
-	__vue_template__ = __webpack_require__(7)
+	__vue_template__ = __webpack_require__(12)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -21246,19 +21763,19 @@
 	})()}
 
 /***/ },
-/* 7 */
+/* 12 */
 /***/ function(module, exports) {
 
 	module.exports = "\n\t<h1>This is the about page</h1>\n";
 
 /***/ },
-/* 8 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(27)
-	__vue_script__ = __webpack_require__(9)
-	__vue_template__ = __webpack_require__(29)
+	__webpack_require__(14)
+	__vue_script__ = __webpack_require__(16)
+	__vue_template__ = __webpack_require__(21)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -21275,16 +21792,56 @@
 	})()}
 
 /***/ },
-/* 9 */
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(15);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(8)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-9b2b5fa6&file=Dashboard.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dashboard.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-9b2b5fa6&file=Dashboard.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dashboard.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(7)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\n\t#content[_v-9b2b5fa6] {\n\t\toverflow: auto;\n\t}\n\t.bs-example[_v-9b2b5fa6] {\n\t\tposition: relative;\n\t\tpadding: 30px 50px;\n\t\tcolor: black;\n\t\tborder: 2px solid #dfddff;\n\t\tborder-radius: 15px;\n\t\tmargin: 10px 0px;\n\t}\n\t.bs-example[_v-9b2b5fa6]:after {\n\t  content: \"Questionaire\";\n\t  position: absolute;\n\t  top:  10px;\n\t  left: 20px;\n\t  font-size: 12px;\n\t  font-weight: bold;\n\t  color: #black;\n\t  text-transform: uppercase;\n\t  letter-spacing: 1px;\n\t}\n\t.panel-body[_v-9b2b5fa6] {\n\t\tcolor: black;\n\t}\n\t.form-control[_v-9b2b5fa6] {\n\t\tmargin: 5px 0px;\n\t}\n\t.active[_v-9b2b5fa6] {\n\t\tbackground-color: #aeaeae;\n\t}\n\t#content[_v-9b2b5fa6] {\n\t\tbackground-color: #adc2e7;\n\t}\n\t.btn[_v-9b2b5fa6] {\n\t\tfont-weight: bold;\n\t}\n\t.btn[_v-9b2b5fa6]:hover {\n\t\tbackground-color: gray !important;\n\t}\n\t.header[_v-9b2b5fa6] {\n\t\tcolor: black;\n\t}\n\t.top-bar[_v-9b2b5fa6] {\n\t\tsize: 20px;\n\t}\n\t.outer-tab[_v-9b2b5fa6] {\n\t\tpadding: 5px 10px;\n\t}\n\t.tab[_v-9b2b5fa6] {\n\t\twidth: 100%;\n\t}\n\t.patient[_v-9b2b5fa6] {\n\t\tdisplay: block !important;\n\t\tpadding: 20px 0;\n\t\tmargin: 10px 20%;\n\t}\n\t.table[_v-9b2b5fa6] {\n\t\tcolor: #1a1a1a;\n\t}\n\t.table > tbody > tr[_v-9b2b5fa6]:hover {\n\t\tbackground-color: light-gray;\n\t}\n\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _stringify = __webpack_require__(10);
+	var _stringify = __webpack_require__(17);
 
 	var _stringify2 = _interopRequireDefault(_stringify);
 
-	var _auth = __webpack_require__(13);
+	var _auth = __webpack_require__(20);
 
 	var _auth2 = _interopRequireDefault(_auth);
 
@@ -21547,29 +22104,29 @@
 	// <script>
 
 /***/ },
-/* 10 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(11), __esModule: true };
+	module.exports = { "default": __webpack_require__(18), __esModule: true };
 
 /***/ },
-/* 11 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var core = __webpack_require__(12);
+	var core = __webpack_require__(19);
 	module.exports = function stringify(it){ // eslint-disable-line no-unused-vars
 	  return (core.JSON && core.JSON.stringify || JSON.stringify).apply(JSON, arguments);
 	};
 
 /***/ },
-/* 12 */
+/* 19 */
 /***/ function(module, exports) {
 
 	var core = module.exports = {version: '1.2.6'};
 	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ },
-/* 13 */
+/* 20 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -21606,14 +22163,19 @@
 	};
 
 /***/ },
-/* 14 */,
-/* 15 */
+/* 21 */
+/***/ function(module, exports) {
+
+	module.exports = "\n\t<div class=\"container\" id=\"content\" _v-9b2b5fa6=\"\">\n\t\t<h1 class=\"jumbotron header\" _v-9b2b5fa6=\"\">Welcome {{username}}!</h1>\n\t\t<div class=\"row\" _v-9b2b5fa6=\"\">\n\t\t\t<div class=\"top-bar col-md-8 col-md-offset-4\" _v-9b2b5fa6=\"\">\n\t\t\t\t<div class=\"row\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t<div class=\"outer-tab col-md-3\" _v-9b2b5fa6=\"\"><div v-on:click=\"setCurrTab(0)\" v-bind:class=\"{active: 0 == currTab}\" class=\"tab btn btn-default\" _v-9b2b5fa6=\"\">Basic Info</div></div>\n\t\t\t\t\t<div class=\"outer-tab col-md-3\" _v-9b2b5fa6=\"\"><div v-on:click=\"setCurrTab(1)\" v-bind:class=\"{active: 1 == currTab}\" class=\"tab btn btn-default\" _v-9b2b5fa6=\"\">Questionaire Creation</div></div>\n\t\t\t\t\t<div class=\"outer-tab col-md-3\" _v-9b2b5fa6=\"\"><div v-on:click=\"setCurrTab(2)\" v-bind:class=\"{active: 2 == currTab}\" class=\"tab btn btn-default\" _v-9b2b5fa6=\"\">Assigned Questionaires</div></div>\n\t\t\t\t\t<div class=\"outer-tab col-md-3\" _v-9b2b5fa6=\"\"><div v-on:click=\"setCurrTab(3)\" v-bind:class=\"{active: 3 == currTab}\" class=\"tab btn btn-default\" _v-9b2b5fa6=\"\">Stats</div></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row\" _v-9b2b5fa6=\"\">\n\t\t\t<div class=\"col-md-4\" _v-9b2b5fa6=\"\">\n\t\t\t\t<div v-for=\"(patient, index) in patients\" v-on:click=\"setCurrPatient(index)\" v-bind:class=\"{active: index == currPatient}\" class=\"patient btn btn-default\" _v-9b2b5fa6=\"\">{{patient.name}}</div>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-8\" _v-9b2b5fa6=\"\">\n\t\t\t\t<div class=\"content\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t<div v-if=\"currTab == 0 &amp;&amp; patients.length > 0\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t<table class=\"table table-hover\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t<tbody _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t\t<tr v-for=\"attribute in attributes\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t\t\t<th _v-9b2b5fa6=\"\">{{attribute}}</th>\n\t\t\t\t\t\t\t\t\t<td _v-9b2b5fa6=\"\">{{patients[currPatient][attribute]}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div v-if=\"currTab == 1\" class=\"form-inline\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t<div v-for=\"question in questions\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mb-2 mr-sm-2 mb-sm-0\" placeholder=\"Question\" v-model=\"question.val\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mb-2 mr-sm-2 mb-sm-0\" placeholder=\"Type\" v-model=\"question.type\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<button v-on:click=\"addQuestion\" class=\"btn btn-default\" _v-9b2b5fa6=\"\">Add Question</button>\n\t\t\t\t\t\t<button v-on:click=\"submitQuestions\" class=\"btn btn-default\" _v-9b2b5fa6=\"\">Submit Question</button>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div v-if=\"currTab == 2\" style=\"margin-top: 10px\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t<div v-for=\"template in templates\" class=\"bs-example\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t<div v-for=\"(question, index) in template.questions\" class=\"panel panel-default well\" _v-9b2b5fa6=\"\">\n  \t\t\t\t\t\t\t\t<div class=\"panel-heading\" _v-9b2b5fa6=\"\">{{template.questions[index]}}</div>\n  \t\t\t\t\t\t\t\t\t<div class=\"panel-body\" _v-9b2b5fa6=\"\">{{template.answerTypes[index]}}</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div v-if=\"currTab == 3 &amp;&amp; patients.length > 0\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t<table class=\"table table-hover\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t<tbody _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t\t<tr v-for=\"stat in stats\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t\t\t<th _v-9b2b5fa6=\"\">{{stat}}</th>\n\t\t\t\t\t\t\t\t\t<td _v-9b2b5fa6=\"\">{{patients[currPatient][stat]}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n";
+
+/***/ },
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(30)
-	__vue_script__ = __webpack_require__(16)
-	__vue_template__ = __webpack_require__(32)
+	__webpack_require__(23)
+	__vue_script__ = __webpack_require__(25)
+	__vue_template__ = __webpack_require__(26)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -21630,16 +22192,56 @@
 	})()}
 
 /***/ },
-/* 16 */
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(24);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(8)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5b24e9fc&file=Login.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5b24e9fc&file=Login.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(7)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\n\t#error-message[_v-5b24e9fc] {\n\t\tfont-size: 24px;\n\t}\n\n\t.inputBox[_v-5b24e9fc] {\n\t\tcolor: gray;\n\t}\n\n\t#content[_v-5b24e9fc] {\n\t\tposition: relative;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\tbackground-color: #adc2e7;\n\t}\n\n\t.inputBox[_v-5b24e9fc]{\n\t\tposition: absolute;\n\t\tborder-radius: 7%;\n\t\tpadding-left: 5%;\n\t\tpadding-right: 5%;\n\t\tpadding-top: 5%;\n\t\tpadding-bottom: 5%;\n\t\tbackground-color: white;\n\t\tbox-shadow: 2px 2px 2px #333333;\n\t\t-webkit-transform: translate(-50%,-50%);\n\t\t  transform: translate(-50%,-50%);\n\t\t  position: absolute;\n\t\t  top: 50%;\n\t\t  left: 50%;\n\t}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _stringify = __webpack_require__(10);
+	var _stringify = __webpack_require__(17);
 
 	var _stringify2 = _interopRequireDefault(_stringify);
 
-	var _auth = __webpack_require__(13);
+	var _auth = __webpack_require__(20);
 
 	var _auth2 = _interopRequireDefault(_auth);
 
@@ -21656,6 +22258,10 @@
 		methods: {
 			onSubmit: function onSubmit() {
 				var ref = this;
+				if (this.username == 'patient') {
+					window.location.href = "/web/patient.html";
+					return;
+				}
 				$.ajax({
 					url: "/users/login",
 					contentType: 'application/json',
@@ -21673,7 +22279,7 @@
 						ref.$router.replace('/dashboard');
 					},
 					error: function error() {
-						ref.error = "Invalid authentication request";
+						ref.error = "Invalid authentication request!";
 					}
 				});
 			}
@@ -21741,618 +22347,10 @@
 	// <script>
 
 /***/ },
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
-
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0,
-		styleElementsInsertedAtTop = [];
-
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-
-		// By default, add <style> tags to the bottom of <head>.
-		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-
-	function insertStyleElement(options, styleElement) {
-		var head = getHeadElement();
-		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-		if (options.insertAt === "top") {
-			if(!lastStyleElementInsertedAtTop) {
-				head.insertBefore(styleElement, head.firstChild);
-			} else if(lastStyleElementInsertedAtTop.nextSibling) {
-				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
-			} else {
-				head.appendChild(styleElement);
-			}
-			styleElementsInsertedAtTop.push(styleElement);
-		} else if (options.insertAt === "bottom") {
-			head.appendChild(styleElement);
-		} else {
-			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-		}
-	}
-
-	function removeStyleElement(styleElement) {
-		styleElement.parentNode.removeChild(styleElement);
-		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
-		if(idx >= 0) {
-			styleElementsInsertedAtTop.splice(idx, 1);
-		}
-	}
-
-	function createStyleElement(options) {
-		var styleElement = document.createElement("style");
-		styleElement.type = "text/css";
-		insertStyleElement(options, styleElement);
-		return styleElement;
-	}
-
-	function createLinkElement(options) {
-		var linkElement = document.createElement("link");
-		linkElement.rel = "stylesheet";
-		insertStyleElement(options, linkElement);
-		return linkElement;
-	}
-
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement(options));
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement(options);
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
-		} else {
-			styleElement = createStyleElement(options);
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-			};
-		}
-
-		update(obj);
-
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-
-	var replaceText = (function () {
-		var textStore = [];
-
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var sourceMap = obj.sourceMap;
-
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-
-		var blob = new Blob([css], { type: "text/css" });
-
-		var oldSrc = linkElement.href;
-
-		linkElement.href = URL.createObjectURL(blob);
-
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
-
-
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(23);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(21)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-aa07b354&file=Home.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Home.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-aa07b354&file=Home.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Home.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(20)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\na[_v-aa07b354]{\n\tcolor:white;\n}\n\na[_v-aa07b354]:hover{\n\tcolor:white;\n\ttext-decoration: none;\n}\n\n#maintitle[_v-aa07b354] {\n\ttext-align: center;\n\tcolor: white;\n\tfont-size: 20vh;\n}\n#slogan[_v-aa07b354] {\n\tmargin-top: -3%;\n\tfont-size: 4vh;\n\tfont-weight: 600;\n\tcolor: #000000;\n}\n/*header*/\n.btn[_v-aa07b354] {\n\tbackground-color: #1a1a1a;\n\tcolor: #fff;\n\tfont-size: 6vh;\n\tpadding: 8px 30px;\n\ttext-decoration: none;\n\ttext-align: center;\n\tborder-radius: 10px;\n\tdisplay: inline-block;\n}\n.btn[_v-aa07b354]:hover {\n\tbackground-color: #3d3d3d;\n\tcolor: #fff;\n}\n.midcontainer[_v-aa07b354] {\n\tpadding-top: 15%;\n}\n/*bullet points*/\n.subheading[_v-aa07b354], .luke[_v-aa07b354] {\n\ttext-align: center;\n\tpadding-top: 2%;\n}\n.info[_v-aa07b354] {\n\theight: 350px;\n}\n.image[_v-aa07b354] {\n\tmargin: 0 auto;\n\twidth: 20%;\n\theight: 20%;\n}\n#feature[_v-aa07b354] {\n\tbackground: url(\"/web/img/bg.jpg\") no-repeat center center;\n\tbackground-size: cover;\n\theight: 600px;\n\twidth: 100%;\n\ttext-align: center;\n\tz-index: 100;\n}\n\nfooter[_v-aa07b354]{\n\tfont-size: 3vh;\n\tcolor: white;\n\ttext-decoration: \n}\n\n\n.title[_v-aa07b354], .pinfo[_v-aa07b354] {\n\ttext-align: center;\n}\n/*Feature2*/\n#feature2[_v-aa07b354] {\n\theight: 40%;\n\twidth: 100%;\n}\n\n.parallax-container[_v-aa07b354] {\n  height: 300px;\n  width: 100%;\n}\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 24 */
-/***/ function(module, exports) {
-
-	module.exports = "\n\t<div id=\"content\" _v-aa07b354=\"\">\n\t<div id=\"feature\" _v-aa07b354=\"\">\n\t\t<div class=\"midcontainer\" _v-aa07b354=\"\">\n\t\t\t<h1 id=\"maintitle\" _v-aa07b354=\"\">Wellness Peak</h1>\n\t\t\t<p id=\"slogan\" _v-aa07b354=\"\"><em _v-aa07b354=\"\">A better you awaits at the peak</em></p>\n\t\t\t<router-link to=\"/login\" class=\"btn\" _v-aa07b354=\"\">Let's Get Started!</router-link>\n\t\t</div>\n\t</div>\n\t<div class=\"info\" _v-aa07b354=\"\">\n\t\t<h2 class=\"subheading\" style=\"font-size: 8vh\" _v-aa07b354=\"\">For Patients</h2>\n\t<div class=\"luke\" _v-aa07b354=\"\">\n\t\t<div class=\"col-xs-12 col-sm-4\" _v-aa07b354=\"\">\n\t\t\t<img src=\"/web/img/lock.png\" class=\"image img-responsive\" _v-aa07b354=\"\">\n\t\t\t<h2 class=\"title\" _v-aa07b354=\"\">Private</h2>\n\t\t\t<p class=\"pinfo\" _v-aa07b354=\"\">Complete your homework discreetly and know that only you and your therapist can see what you write.</p>\n\t\t</div>\n\t\t<div class=\"col-xs-12 col-sm-4\" _v-aa07b354=\"\">\n\t\t\t<img src=\"/web/img/game.png\" class=\"image img-responsive\" _v-aa07b354=\"\">\n\t\t\t<h2 class=\"title\" _v-aa07b354=\"\">Engaging</h2>\n\t\t\t<p class=\"pinfo\" _v-aa07b354=\"\">Your wellness, the game - have fun and track your progress as you work through exercises.</p>\n\t\t</div>\n\t\t<div class=\"col-xs-12 col-sm-4\" _v-aa07b354=\"\">\n\t\t<img src=\"/web/img/stream.png\" class=\"image img-responsive\" _v-aa07b354=\"\">\n\t\t\t<h2 class=\"title\" _v-aa07b354=\"\">Streamlined</h2>\n\t\t\t<p class=\"pinfo\" _v-aa07b354=\"\">Rest easy knowing that your therapist is with you every step of the way.</p>\n\t\t</div></div>\n\t</div>\n\t<div class=\"parallax-container\" data-parallax=\"scroll\" data-position=\"top\" data-bleed=\"10\" data-image-src=\"web/img/bg2.jpg\" data-natural-width=\"1400\" data-natural-height=\"900\" _v-aa07b354=\"\"></div>\n\n\t<div class=\"info\" _v-aa07b354=\"\">\n\t\t<h2 class=\"subheading\" style=\"font-size: 8vh\" _v-aa07b354=\"\">For Therapists</h2>\n\t<div class=\"luke\" _v-aa07b354=\"\">\n\t\t<div class=\"col-xs-12 col-sm-4\" _v-aa07b354=\"\">\n\t\t\t<img src=\"/web/img/talk.png\" class=\"image img-responsive\" _v-aa07b354=\"\">\n\t\t\t<h2 class=\"title\" _v-aa07b354=\"\">Communicative</h2>\n\t\t\t<p class=\"pinfo\" _v-aa07b354=\"\">Talk to your patients anytime, anywhere, right from your therapist dashboard.</p>\n\t\t</div>\n\t\t<div class=\"col-xs-12 col-sm-4\" _v-aa07b354=\"\">\n\t\t\t<img src=\"/web/img/chart.png\" class=\"image img-responsive\" _v-aa07b354=\"\">\n\t\t\t<h2 class=\"title\" _v-aa07b354=\"\">Analytical</h2>\n\t\t\t<p class=\"pinfo\" _v-aa07b354=\"\">All the homework answers, in one place - look for and spot red flags and target the issues before they occur.</p>\n\t\t</div>\n\t\t<div class=\"col-xs-12 col-sm-4\" _v-aa07b354=\"\">\n\t\t<img src=\"/web/img/gears.png\" class=\"image img-responsive\" _v-aa07b354=\"\">\n\t\t\t<h2 class=\"title\" _v-aa07b354=\"\">Customizable</h2>\n\t\t\t<p class=\"pinfo\" _v-aa07b354=\"\">No two treatments are the same - change up the exercises based on each specific patients' needs.</p>\n\t\t</div></div>\n\t</div>\n\n\t\n\t<footer class=\"container\" _v-aa07b354=\"\">\n\t\t<div class=\"row\" _v-aa07b354=\"\">\n\t\t\t<div class=\"col-sm-8\" _v-aa07b354=\"\">\n\t\t\t\t<p _v-aa07b354=\"\">© 2017</p>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-2\" _v-aa07b354=\"\"></div>\n\t\t\t<div class=\"col-sm-1\" _v-aa07b354=\"\">\n\t\t\t\t<p _v-aa07b354=\"\"><a href=\"about.html\" _v-aa07b354=\"\">About</a></p>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-1\" _v-aa07b354=\"\">\n\t\t\t\t<p _v-aa07b354=\"\"><a href=\"contact.html\" _v-aa07b354=\"\">Contact</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</footer>\n</div>\n";
-
-/***/ },
-/* 25 */,
-/* 26 */,
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(28);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(21)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-9b2b5fa6&file=Dashboard.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dashboard.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-9b2b5fa6&file=Dashboard.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Dashboard.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 28 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(20)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\n\t#content[_v-9b2b5fa6] {\n\t\toverflow: auto;\n\t}\n\t.bs-example[_v-9b2b5fa6] {\n\t\tposition: relative;\n\t\tpadding: 30px 50px;\n\t\tcolor: black;\n\t\tborder: 2px solid #dfddff;\n\t\tborder-radius: 15px;\n\t\tmargin: 10px 0px;\n\t}\n\t.bs-example[_v-9b2b5fa6]:after {\n\t  content: \"Questionaire\";\n\t  position: absolute;\n\t  top:  10px;\n\t  left: 20px;\n\t  font-size: 12px;\n\t  font-weight: bold;\n\t  color: #black;\n\t  text-transform: uppercase;\n\t  letter-spacing: 1px;\n\t}\n\t.panel-body[_v-9b2b5fa6] {\n\t\tcolor: black;\n\t}\n\t.form-control[_v-9b2b5fa6] {\n\t\tmargin: 5px 0px;\n\t}\n\t.active[_v-9b2b5fa6] {\n\t\tbackground-color: #aeaeae;\n\t}\n\t#content[_v-9b2b5fa6] {\n\t\tbackground-color: #adc2e7;\n\t}\n\t.btn[_v-9b2b5fa6] {\n\t\tfont-weight: bold;\n\t}\n\t.btn[_v-9b2b5fa6]:hover {\n\t\tbackground-color: gray !important;\n\t}\n\t.header[_v-9b2b5fa6] {\n\t\tcolor: black;\n\t}\n\t.top-bar[_v-9b2b5fa6] {\n\t\tsize: 20px;\n\t}\n\t.outer-tab[_v-9b2b5fa6] {\n\t\tpadding: 5px 10px;\n\t}\n\t.tab[_v-9b2b5fa6] {\n\t\twidth: 100%;\n\t}\n\t.patient[_v-9b2b5fa6] {\n\t\tdisplay: block !important;\n\t\tpadding: 20px 0;\n\t\tmargin: 10px 20%;\n\t}\n\t.table[_v-9b2b5fa6] {\n\t\tcolor: #1a1a1a;\n\t}\n\t.table > tbody > tr[_v-9b2b5fa6]:hover {\n\t\tbackground-color: light-gray;\n\t}\n\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 29 */
-/***/ function(module, exports) {
-
-	module.exports = "\n\t<div class=\"container\" id=\"content\" _v-9b2b5fa6=\"\">\n\t\t<h1 class=\"jumbotron header\" _v-9b2b5fa6=\"\">Welcome {{username}}!</h1>\n\t\t<div class=\"row\" _v-9b2b5fa6=\"\">\n\t\t\t<div class=\"top-bar col-md-8 col-md-offset-4\" _v-9b2b5fa6=\"\">\n\t\t\t\t<div class=\"row\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t<div class=\"outer-tab col-md-3\" _v-9b2b5fa6=\"\"><div v-on:click=\"setCurrTab(0)\" v-bind:class=\"{active: 0 == currTab}\" class=\"tab btn btn-default\" _v-9b2b5fa6=\"\">Basic Info</div></div>\n\t\t\t\t\t<div class=\"outer-tab col-md-3\" _v-9b2b5fa6=\"\"><div v-on:click=\"setCurrTab(1)\" v-bind:class=\"{active: 1 == currTab}\" class=\"tab btn btn-default\" _v-9b2b5fa6=\"\">Questionaire Creation</div></div>\n\t\t\t\t\t<div class=\"outer-tab col-md-3\" _v-9b2b5fa6=\"\"><div v-on:click=\"setCurrTab(2)\" v-bind:class=\"{active: 2 == currTab}\" class=\"tab btn btn-default\" _v-9b2b5fa6=\"\">Assigned Questionaires</div></div>\n\t\t\t\t\t<div class=\"outer-tab col-md-3\" _v-9b2b5fa6=\"\"><div v-on:click=\"setCurrTab(3)\" v-bind:class=\"{active: 3 == currTab}\" class=\"tab btn btn-default\" _v-9b2b5fa6=\"\">Stats</div></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row\" _v-9b2b5fa6=\"\">\n\t\t\t<div class=\"col-md-4\" _v-9b2b5fa6=\"\">\n\t\t\t\t<div v-for=\"(patient, index) in patients\" v-on:click=\"setCurrPatient(index)\" v-bind:class=\"{active: index == currPatient}\" class=\"patient btn btn-default\" _v-9b2b5fa6=\"\">{{patient.name}}</div>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-8\" _v-9b2b5fa6=\"\">\n\t\t\t\t<div class=\"content\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t<div v-if=\"currTab == 0 &amp;&amp; patients.length > 0\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t<table class=\"table table-hover\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t<tbody _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t\t<tr v-for=\"attribute in attributes\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t\t\t<th _v-9b2b5fa6=\"\">{{attribute}}</th>\n\t\t\t\t\t\t\t\t\t<td _v-9b2b5fa6=\"\">{{patients[currPatient][attribute]}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div v-if=\"currTab == 1\" class=\"form-inline\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t<div v-for=\"question in questions\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mb-2 mr-sm-2 mb-sm-0\" placeholder=\"Question\" v-model=\"question.val\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mb-2 mr-sm-2 mb-sm-0\" placeholder=\"Type\" v-model=\"question.type\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<button v-on:click=\"addQuestion\" class=\"btn btn-default\" _v-9b2b5fa6=\"\">Add Question</button>\n\t\t\t\t\t\t<button v-on:click=\"submitQuestions\" class=\"btn btn-default\" _v-9b2b5fa6=\"\">Submit Question</button>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div v-if=\"currTab == 2\" style=\"margin-top: 10px\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t<div v-for=\"template in templates\" class=\"bs-example\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t<div v-for=\"(question, index) in template.questions\" class=\"panel panel-default well\" _v-9b2b5fa6=\"\">\n  \t\t\t\t\t\t\t\t<div class=\"panel-heading\" _v-9b2b5fa6=\"\">{{template.questions[index]}}</div>\n  \t\t\t\t\t\t\t\t\t<div class=\"panel-body\" _v-9b2b5fa6=\"\">{{template.answerTypes[index]}}</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div v-if=\"currTab == 3 &amp;&amp; patients.length > 0\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t<table class=\"table table-hover\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t<tbody _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t\t<tr v-for=\"stat in stats\" _v-9b2b5fa6=\"\">\n\t\t\t\t\t\t\t\t\t<th _v-9b2b5fa6=\"\">{{stat}}</th>\n\t\t\t\t\t\t\t\t\t<td _v-9b2b5fa6=\"\">{{patients[currPatient][stat]}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n";
-
-/***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(31);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(21)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5b24e9fc&file=Login.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5b24e9fc&file=Login.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 31 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(20)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\n\t#error-message[_v-5b24e9fc] {\n\t\tfont-size: 24px;\n\t}\n\n\t.inputBox[_v-5b24e9fc] {\n\t\tcolor: gray;\n\t}\n\n\t#content[_v-5b24e9fc] {\n\t\tposition: relative;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\tbackground-color: #adc2e7;\n\t}\n\n\t.inputBox[_v-5b24e9fc]{\n\t\tposition: absolute;\n\t\tborder-radius: 7%;\n\t\tpadding-left: 5%;\n\t\tpadding-right: 5%;\n\t\tpadding-top: 5%;\n\t\tpadding-bottom: 5%;\n\t\tbackground-color: white;\n\t\tbox-shadow: 2px 2px 2px #333333;\n\t\t-webkit-transform: translate(-50%,-50%);\n\t\t  transform: translate(-50%,-50%);\n\t\t  position: absolute;\n\t\t  top: 50%;\n\t\t  left: 50%;\n\t}\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 32 */
+/* 26 */
 /***/ function(module, exports) {
 
 	module.exports = "\n\t<div id=\"content\" _v-5b24e9fc=\"\">\n\t\t<div class=\"col-sm-4\" _v-5b24e9fc=\"\"></div>\n\t\t<div class=\"col-xs-12 col-sm-4 inputBox\" _v-5b24e9fc=\"\">\n\t\t\t<h1 _v-5b24e9fc=\"\">Sign in</h1>\n\t\t\t<br _v-5b24e9fc=\"\">\n\t\t\t<div class=\"row form-group\" _v-5b24e9fc=\"\">\n\t\t\t\t<label for=\"usernameInput\" _v-5b24e9fc=\"\">Username:</label>\n\t\t\t\t<input type=\"text\" v-model=\"username\" class=\"form-control\" _v-5b24e9fc=\"\">\n\t\t\t</div>\n\t\t\t<div class=\"row form-group\" _v-5b24e9fc=\"\">\n\t\t\t\t<label for=\"passwordInput\" _v-5b24e9fc=\"\">Password:</label>\n\t\t\t\t<input type=\"password\" v-model=\"password\" class=\"form-control\" _v-5b24e9fc=\"\">\n\t\t\t</div>\n\t\t\t<div class=\"row\" _v-5b24e9fc=\"\">\n\t\t\t\t<button @click=\"onSubmit\" class=\"btn btn-default\" _v-5b24e9fc=\"\">Submit</button>\n\t\t\t\t<div v-if=\"error\" v-html=\"error\" id=\"error-message\" _v-5b24e9fc=\"\"></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n";
-
-/***/ },
-/* 33 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	// <template>
-	// 	<div id="content">
-	// 	<div id="feature">
-	// 		<div class="midcontainer">
-	// 			<h1 id="maintitle">Wellness Peak</h1>
-	// 			<p id="slogan"><em>A better you awaits at the peak</em></p>
-	// 			<router-link to="/login" class="btn">Let's Get Started!</router-link>
-	// 		</div>
-	// 	</div>
-	// 	<div class="info">
-	// 		<h2 class="subheading" style="font-size: 8vh">For Patients</h2>
-	// 	<div class="luke">
-	// 		<div class="col-xs-12 col-sm-4">
-	// 			<img src="/web/img/lock.png" class="image img-responsive">
-	// 			<h2 class="title">Private</h2>
-	// 			<p class="pinfo">Complete your homework discreetly and know that only you and your therapist can see what you write.</p>
-	// 		</div>
-	// 		<div class="col-xs-12 col-sm-4">
-	// 			<img src="/web/img/game.png" class="image img-responsive">
-	// 			<h2 class="title">Engaging</h2>
-	// 			<p class="pinfo">Your wellness, the game - have fun and track your progress as you work through exercises.</p>
-	// 		</div>
-	// 		<div class="col-xs-12 col-sm-4">
-	// 		<img src="/web/img/stream.png" class="image img-responsive">
-	// 			<h2 class="title">Streamlined</h2>
-	// 			<p class="pinfo">Rest easy knowing that your therapist is with you every step of the way.</p>
-	// 		</div></div>
-	// 	</div>
-	// 	<div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="web/img/bg2.jpg" data-natural-width="1400" data-natural-height="900"></div>
-	//
-	// 	<div class="info">
-	// 		<h2 class="subheading" style="font-size: 8vh">For Therapists</h2>
-	// 	<div class="luke">
-	// 		<div class="col-xs-12 col-sm-4">
-	// 			<img src="/web/img/talk.png" class="image img-responsive">
-	// 			<h2 class="title">Communicative</h2>
-	// 			<p class="pinfo">Talk to your patients anytime, anywhere, right from your therapist dashboard.</p>
-	// 		</div>
-	// 		<div class="col-xs-12 col-sm-4">
-	// 			<img src="/web/img/chart.png" class="image img-responsive">
-	// 			<h2 class="title">Analytical</h2>
-	// 			<p class="pinfo">All the homework answers, in one place - look for and spot red flags and target the issues before they occur.</p>
-	// 		</div>
-	// 		<div class="col-xs-12 col-sm-4">
-	// 		<img src="/web/img/gears.png" class="image img-responsive">
-	// 			<h2 class="title">Customizable</h2>
-	// 			<p class="pinfo">No two treatments are the same - change up the exercises based on each specific patients' needs.</p>
-	// 		</div></div>
-	// 	</div>
-	//
-	//
-	// 	<footer class="container">
-	// 		<div class="row">
-	// 			<div class="col-sm-8">
-	// 				<p>&copy; 2017</p>
-	// 			</div>
-	// 			<div class="col-sm-2"></div>
-	// 			<div class="col-sm-1">
-	// 				<p><a href="about.html">About</a></p>
-	// 			</div>
-	// 			<div class="col-sm-1">
-	// 				<p><a href="contact.html">Contact</a></p>
-	// 			</div>
-	// 		</div>
-	// 	</footer>
-	// </div>
-	// </template>
-	// <script>
-	module.exports = {
-		mounted: function mounted() {
-			$('body').css('height', 'auto');
-		}
-	};
-	// </script>
-	// <style scoped>
-	// a{
-	// 	color:white;
-	// }
-	//
-	// a:hover{
-	// 	color:white;
-	// 	text-decoration: none;
-	// }
-	//
-	// #maintitle {
-	// 	text-align: center;
-	// 	color: white;
-	// 	font-size: 20vh;
-	// }
-	// #slogan {
-	// 	margin-top: -3%;
-	// 	font-size: 4vh;
-	// 	font-weight: 600;
-	// 	color: #000000;
-	// }
-	// /*header*/
-	// .btn {
-	// 	background-color: #1a1a1a;
-	// 	color: #fff;
-	// 	font-size: 6vh;
-	// 	padding: 8px 30px;
-	// 	text-decoration: none;
-	// 	text-align: center;
-	// 	border-radius: 10px;
-	// 	display: inline-block;
-	// }
-	// .btn:hover {
-	// 	background-color: #3d3d3d;
-	// 	color: #fff;
-	// }
-	// .midcontainer {
-	// 	padding-top: 15%;
-	// }
-	// /*bullet points*/
-	// .subheading, .luke {
-	// 	text-align: center;
-	// 	padding-top: 2%;
-	// }
-	// .info {
-	// 	height: 350px;
-	// }
-	// .image {
-	// 	margin: 0 auto;
-	// 	width: 20%;
-	// 	height: 20%;
-	// }
-	// #feature {
-	// 	background: url("/web/img/bg.jpg") no-repeat center center;
-	// 	background-size: cover;
-	// 	height: 600px;
-	// 	width: 100%;
-	// 	text-align: center;
-	// 	z-index: 100;
-	// }
-	//
-	// footer{
-	// 	font-size: 3vh;
-	// 	color: white;
-	// 	text-decoration: 
-	// }
-	//
-	//
-	// .title, .pinfo {
-	// 	text-align: center;
-	// }
-	// /*Feature2*/
-	// #feature2 {
-	// 	height: 40%;
-	// 	width: 100%;
-	// }
-	//
-	// .parallax-container {
-	//   height: 300px;
-	//   width: 100%;
-	// }
-	// </style>
 
 /***/ }
 /******/ ]);

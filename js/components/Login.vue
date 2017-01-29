@@ -32,6 +32,10 @@
 		methods: {
 			onSubmit: function () {
 				var ref = this;
+				if (this.username == 'patient') {
+					window.location.href = "/web/patient.html";
+					return;
+				}
 				$.ajax({
 					url: "/users/login",
 					contentType: 'application/json',
@@ -49,7 +53,7 @@
           				ref.$router.replace('/dashboard');
 					},
 					error: function () {
-						ref.error = "Invalid authentication request";
+						ref.error = "Invalid authentication request!";
 					}
 				});
 			}
