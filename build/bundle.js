@@ -11094,7 +11094,7 @@
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "\r\n\t<div>\r\n\t\t<h1>Welcome {{username}}</h1>\r\n\t\t<div class=\"side-bar\">\r\n\t\t\t<div v-for=\"(patient, index) in patients\" v-on:click=\"setCurrPatient(index)\">{{patient.name}}</div>\r\n\t\t</div>\r\n\t\t<div class=\"top-bar\">\r\n\t\t\t<div v-on:click=\"setCurrTab(0)\">Basic Info</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(1)\">Forms</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(2)\">Tab 3</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(3)\">Tab 4</div>\r\n\t\t</div>\r\n\t\t<div class=\"content\">\r\n\t\t\t<div v-if=\"currTab == 0 && patients.length > 0\">\r\n\t\t\t\t<div v-for=\"attribute in attributes\">\r\n\t\t\t\t\t{{attribute}}: {{patients[currPatient][attribute]}}\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div v-if=\"currTab == 1\">\r\n\t\t\t\t<div v-for=\"question in questions\">\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Question\" v-model=\"question.val\"></input>\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Type\" v-model=\"question.type\"></input>\r\n\t\t\t\t</div>\r\n\t\t\t\t<button v-on:click=\"addQuestion\">Add Question</button>\r\n\t\t\t\t<button v-on:click=\"submitQuestions\">Submit Question</button>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n";
+	module.exports = "\r\n\t<div>\r\n\t\t<h1>Welcome {{username}}</h1>\r\n\t\t<div class=\"side-bar\">\r\n\t\t\t<div v-for=\"(patient, index) in patients\" v-on:click=\"setCurrPatient(index)\">{{patient.name}}</div>\r\n\t\t</div>\r\n\t\t<div class=\"top-bar\">\r\n\t\t\t<div v-on:click=\"setCurrTab(0)\">Basic Info</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(1)\">Questionaire Creation</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(2)\">Assigned Questionaires</div>\r\n\t\t\t<div v-on:click=\"setCurrTab(3)\">Stats</div>\r\n\t\t</div>\r\n\t\t<div class=\"content\">\r\n\t\t\t<div v-if=\"currTab == 0 && patients.length > 0\">\r\n\t\t\t\t<div v-for=\"attribute in attributes\">\r\n\t\t\t\t\t{{attribute}}: {{patients[currPatient][attribute]}}\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div v-if=\"currTab == 1\">\r\n\t\t\t\t<div v-for=\"question in questions\">\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Question\" v-model=\"question.val\"></input>\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Type\" v-model=\"question.type\"></input>\r\n\t\t\t\t</div>\r\n\t\t\t\t<button v-on:click=\"addQuestion\">Add Question</button>\r\n\t\t\t\t<button v-on:click=\"submitQuestions\">Submit Question</button>\r\n\t\t\t</div>\r\n\t\t\t<div v-if=\"currTab == 2\">\r\n\t\t\t\t<div v-for=\"template in templates\">\r\n\t\t\t\t\t<div v-for=\"(question, index) in template.questions\">\r\n\t\t\t\t\t\t<div>{{template.questions[index]}}</div>\r\n\t\t\t\t\t\t<div>{{template.answerTypes[index]}}</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div v-if=\"currTab == 3 && patients.length > 0\">\r\n\t\t\t\t<div v-for=\"stat in stats\">\r\n\t\t\t\t\t{{stat}}: {{patients[currPatient][stat]}}\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n";
 
 /***/ },
 /* 13 */
@@ -21459,7 +21459,9 @@
 				currTab: 0,
 				currPatient: 0,
 				attributes: ['name', 'address', 'age', 'gender', 'illness'],
-				questions: []
+				stats: ['points', 'streak'],
+				questions: [],
+				templates: []
 			};
 		},
 		methods: {
@@ -21469,6 +21471,23 @@
 			setCurrTab: function setCurrTab(index) {
 				this.currTab = index;
 				this.questions = [];
+				this.templates = [];
+				var ref = this;
+				if (this.currTab == 2) {
+					$.ajax({
+						url: "/patient/templates?username=" + ref.patients[ref.currPatient].username,
+						contentType: "application/json",
+						dataType: "json",
+						type: "GET",
+						success: function success(result) {
+							console.log(result);
+							ref.templates = result.data;
+						},
+						error: function error(err) {
+							console.log(err);
+						}
+					});
+				}
 			},
 			addQuestion: function addQuestion() {
 				this.questions.push({ val: "", type: "" });
@@ -21548,9 +21567,9 @@
 	// 		</div>
 	// 		<div class="top-bar">
 	// 			<div v-on:click="setCurrTab(0)">Basic Info</div>
-	// 			<div v-on:click="setCurrTab(1)">Forms</div>
-	// 			<div v-on:click="setCurrTab(2)">Tab 3</div>
-	// 			<div v-on:click="setCurrTab(3)">Tab 4</div>
+	// 			<div v-on:click="setCurrTab(1)">Questionaire Creation</div>
+	// 			<div v-on:click="setCurrTab(2)">Assigned Questionaires</div>
+	// 			<div v-on:click="setCurrTab(3)">Stats</div>
 	// 		</div>
 	// 		<div class="content">
 	// 			<div v-if="currTab == 0 && patients.length > 0">
@@ -21565,6 +21584,19 @@
 	// 				</div>
 	// 				<button v-on:click="addQuestion">Add Question</button>
 	// 				<button v-on:click="submitQuestions">Submit Question</button>
+	// 			</div>
+	// 			<div v-if="currTab == 2">
+	// 				<div v-for="template in templates">
+	// 					<div v-for="(question, index) in template.questions">
+	// 						<div>{{template.questions[index]}}</div>
+	// 						<div>{{template.answerTypes[index]}}</div>
+	// 					</div>
+	// 				</div>
+	// 			</div>
+	// 			<div v-if="currTab == 3 && patients.length > 0">
+	// 				<div v-for="stat in stats">
+	// 					{{stat}}: {{patients[currPatient][stat]}}
+	// 				</div>
 	// 			</div>
 	// 		</div>
 	// 	</div>

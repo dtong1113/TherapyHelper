@@ -6,9 +6,9 @@
 		</div>
 		<div class="top-bar">
 			<div v-on:click="setCurrTab(0)">Basic Info</div>
-			<div v-on:click="setCurrTab(1)">Forms</div>
-			<div v-on:click="setCurrTab(2)">Tab 3</div>
-			<div v-on:click="setCurrTab(3)">Tab 4</div>
+			<div v-on:click="setCurrTab(1)">Questionaire Creation</div>
+			<div v-on:click="setCurrTab(2)">Assigned Questionaires</div>
+			<div v-on:click="setCurrTab(3)">Stats</div>
 		</div>
 		<div class="content">
 			<div v-if="currTab == 0 && patients.length > 0">
@@ -23,6 +23,19 @@
 				</div>
 				<button v-on:click="addQuestion">Add Question</button>
 				<button v-on:click="submitQuestions">Submit Question</button>
+			</div>
+			<div v-if="currTab == 2">
+				<div v-for="template in templates">
+					<div v-for="(question, index) in template.questions">
+						<div>{{template.questions[index]}}</div>
+						<div>{{template.answerTypes[index]}}</div>
+					</div>
+				</div>
+			</div>
+			<div v-if="currTab == 3 && patients.length > 0">
+				<div v-for="stat in stats">
+					{{stat}}: {{patients[currPatient][stat]}}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -39,7 +52,9 @@
 				currTab: 0,
 				currPatient: 0,
 				attributes: ['name', 'address', 'age', 'gender', 'illness'],
-				questions: []
+				stats: ['points', 'streak'],
+				questions: [],
+				templates: []
 			};
 		},
 		methods: {
@@ -49,6 +64,23 @@
 			setCurrTab: function (index) {
 				this.currTab = index;
 				this.questions = [];
+				this.templates = [];
+				var ref = this;
+				if (this.currTab == 2) {
+					$.ajax({
+						url: "/patient/templates?username="+ref.patients[ref.currPatient].username,
+						contentType: "application/json",
+						dataType: "json",
+						type: "GET",
+						success: function (result) {
+							console.log(result);
+							ref.templates = result.data;
+						},
+						error: function (err) {
+							console.log(err);
+						}
+					})
+				}
 			},
 			addQuestion: function () {
 				this.questions.push({val: "", type: ""});

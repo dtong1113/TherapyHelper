@@ -5,6 +5,7 @@ var Therapist = require('../models/therapist');
 var Template = require('../models/template');
 var User = require('../models/user');
 var Verify = require('./verify');
+var qs = require('qs');
 const uuid = require('uuid/v1');
 
 router.get('/username', Verify.verifyPatient, function (req, res) {
@@ -78,13 +79,18 @@ router.post('/therapist', Verify.verifyPatient, function (req, res) {
 });
 
 // gets all Template schema templates to complete for user
-router.get('/templates', Verify.verifyPatient, function (req, res) {
+router.get('/templates', Verify.verifyTherapist, function (req, res) {
+	var username = qs.parse(req.query).username;
+	console.log(username);
+	console.log(req.url);
+	console.log(qs.parse(req.query));
 	Patient.findOne({
-		username: req.session.username
+		username: username
 	}, function (err, patient) {
 		if (err)
 			return res.status(500).json({err: err});
 		var uuids = [];
+		console.log(patient);
 		for (var i = 0; i < patient.templates.length; i++)
 			uuids.push(patient.templates[i].uuid);
 		Template.find({uuid: {"$in": uuids}}, function (err, templates) {
