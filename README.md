@@ -5,4 +5,4 @@ Conversely, through our platform therapists gain access to fully customizable qu
 
 Built for DeltaHacks 2016.
 
-https://devpost.com/software/wellness-peak-f8m3hg
+Devpost: https://devpost.com/software/wellness-peak-f8m3hg
